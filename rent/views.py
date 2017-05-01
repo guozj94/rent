@@ -72,13 +72,34 @@ def send_request_ajax(request):
 	request_item.name = name
 	request_item.description = description
 	request_item.reward = reward
-	request_item.borrower = User.objects.get(id=1)
+	request_item.borrower = User.objects.get(id=1) #request.user
 	request_item.save()
 	print name, description, need_from, need_to
 	data = []
 	jsonobj = json.dumps(data, cls=DjangoJSONEncoder)
 	return HttpResponse(jsonobj, content_type='application/json')
 
+def incomingoffer(request):
+	context = {}
+	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_avtive
+	incoming_offer = OfferResponse.objects.filter(item__in=my_items)
+	context['incoming_offer'] = incoming_offer
+	print my_items, incoming_offer
+	return render(request, 'rent/myoffers-incoming.html', context)
+
+def confirmedoffer(request):
+	context = {}
+	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_active
+	confirmed_offer = Transaction.objects.filter(is_offer=True, offer_item__in=my_items)
+	context['confirmed_offer'] = confirmed_offer
+	print confirmed_offer
+	return render(request, 'rent/myoffers-confirmed.html', context)
+
+def myalloffer(request):
+	context = {}
+	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_active
+	context['my_items'] = my_items
+	return render(request, 'rent/myoffers-myitems.html', context)
 
 def get_user_photo(request, id):
 	user = get_object_or_404(User, id=id)

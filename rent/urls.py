@@ -9,5 +9,7 @@ urlpatterns = [
 	url(r'^userpicture/(?P<id>\S+)$', rent_views.get_user_photo, name='userpicture'),
 	url(r'^userpicture$', rent_views.get_user_photo, name='userpicture'),
 	url(r'^send_request_ajax$', rent_views.send_request_ajax, name='send_request_ajax'),
-
+	url(r'^incomingoffer$', rent_views.incomingoffer, name='incomingoffer'),
+	url(r'^confirmedoffer$', rent_views.confirmedoffer, name='confirmedoffer'),
+	url(r'^myalloffer$', rent_views.myalloffer, name='myalloffer'),
 ]

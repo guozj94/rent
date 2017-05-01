@@ -1,58 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>web design final</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../../static/rent/css/style.css">
+{% extends "rent/base.html" %}
+
+{% block pagetitle %}My Offers{% endblock %}
+
+{% block customized_static %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'rent/css/style.css' %}">
         <link rel="stylesheet" type="text/css" href="../../static/rent/css/myoffers.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+        <script type="text/javascript" src=""></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-					<span class="glyphicon glyphicon-menu-hamburger"></span>
-				</button>
-				<a href="index.html" class="navbar-brand">
-					<img alt="Brand" src="../../static/rent/image/brand.png">
-				</a>
-            </div>
-            
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right" id="nav-menu">
-                    <li>Offer My Item</li>
-                    <li>Categories</li>
-                    <li>My Offers</li>
-                    <li>My Requests</li>
-                    <li><i class="fa fa-search" aria-hidden="true"></i></li>
-                    <li id="nav-user">
-                         <img src="../../static/rent/image/avatar.png" alt="">
-                         <!--<p>Tom</p>-->
-                    </li>
-                </ul>
-            </div>
-        </nav>
+{% endblock %}
+
+    {% block bodycontent %}
         
         <section class="main-container">
             <div class="row">
                 <nav class="col-sm-3 col-md-3 col-lg-3 bs-docs-sidebar hidden-print" role="complementary">
                     <div class="subnav-list">
                         <ui>
-                            <li class="subnav-chosen clickable">Incoming Requests</li>
-                            <li class="subnav clickable">Confirmed Requests</li>
-                            <li class="subnav clickable">My Items</li>
+                            <li class="subnav-chosen clickable"><a href="{% url 'incomingoffer' %}">Incoming Requests</a></li>
+                            <li class="subnav clickable"><a href="{% url 'confirmedoffer' %}">Confirmed Requests</a></li>
+                            <li class="subnav clickable"><a href="{% url 'myalloffer' %}">My Items</a></li>
                         </ui>
                     </div>
                 </nav>
                 <div class="col-sm-9 col-md-9 col-lg-9" role="main">
                     <div class="h1">Incoming</div>
-                    <div class="myoffer-incoming gray-border incoming-gray-border container">
+                    {% for i in incoming_offer %}
+                    <div class="myoffer-incoming gray-border incoming-gray-border container">      
                         <div class="row">
                             <div class="col-xxs col-xs-9 col-sm-9 col-md-9 col-lg-9 verticalLine container">
                                 <div class="row">
@@ -62,13 +37,13 @@
                                     <div class="col-xxs col-xs-8 col-sm-9 col-md-10 col-lg-10">
                                         <div class="myoffer-title">
                                             <div class="h2 myoffer-title-description">
-                                                Luke is interested in your Tripod
+                                                {{i.borrower.first_name}} is interested in your {{i.item.name}}
                                             </div>
                                             <!--<div class="caption-2 myoffer-time">04/05/2017</div>-->
                                         </div>
                                         
                                         <div class="myoffer-description">
-                                            Lending Discription: hey, could I borrow you Tripod. I would borrow you three days. Thank you.
+                                            Lending Discription: {{i.borrower_note}}
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +59,7 @@
                                     </div>
                                     <div class="col-xxs col-xs-8 col-sm-9 col-md-10 col-lg-10">
                                         <div class="body incoming-sub-title">
-                                            3 Days from Apr. 24 - Apr. 26
+                                            {{i.start_time}} to {{i.end_time}}
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +72,7 @@
                                     </div>
                                     <div class="col-xxs col-xs-8 col-sm-9 col-md-10 col-lg-10">
                                         <div class="body">
-                                            $10 Amazon Giftcard or The price you provided
+                                            {{i.reward}}
                                         </div>
                                         <div class="caption-2">
                                             * Contact Requester for more information
@@ -108,9 +83,12 @@
                                 
                                 
                             </div>
+
+
                             <div class="col-xxs col-xs-3 col-sm-3 col-md-3 col-lg-3 request-avatar">
+                                <input type="hidden" name="" id="contactinfo" value="{{i.borrower.email}}">
                                 <img class="center margin-between-element" src="../../static/rent/image/avatar.png"></img>
-                                <div class="body center margin-between-element">Jack</div>
+                                <div class="body center margin-between-element">{{i.borrower.first_name}}</div>
                                 <button class="btn btn-secondary btn-secondary-blue center">
                                     Contact
                                 </button>
@@ -119,6 +97,7 @@
                         </div>
                         <hr id="incoming-line">
                         <div>
+                            <input type="hidden" name="" input="responseid" value="{{i.id}}">
                             <div class="caption-2 incoming-time">
                                 04/05/2017
                             </div>
@@ -130,14 +109,14 @@
                             </button>
                             
                         </div>
-                        
-                        
-                        
+                          
                     </div>
+                    {% endfor %}
                 </div>
                 
             </div>
         </section>
+        {% endblock %}
     
         <!--<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-right offcanvas" role="navigation">-->
         <!--  <a class="navmenu-brand" href="#">Brand</a>-->
@@ -168,9 +147,3 @@
         <!--    Secondary Button-->
         <!--</button>-->
         
-        
-        
- 
-    
-    </body>
-</html>
