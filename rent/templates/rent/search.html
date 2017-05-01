@@ -1,0 +1,208 @@
+{% extends "rent/base.html" %}
+
+{% block customized_static %}
+        
+        <!-- Customized static files -->
+        <link rel="stylesheet" href="../../static/rent/css/search.css" type="text/css" />
+        <script type="text/javascript" src="../../static/rent/js/search.js"></script>
+{% endblock %}
+    
+{% block bodycontent %}
+        <script type="text/javascript">
+            var lender_image_url = "{% url 'userpicture' %}"
+        </script>
+        <div class="main-container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-md-9">
+                    
+                    <div class="content-container">
+                        <div class="row" id="search">
+                            <div class="col-xs-9 col-xs-9 col-sm-9 col-md-9" id="searchbar-container">
+                                <input type="text" id="searchbar" name="" placeholder="  Search item"/>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 clickable" id="search-btn-container">
+                                <div class="clickable btn btn-primary" id="search-btn">
+                                    Search
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" id="items-container">
+                        {% for item in items %}
+                            <div class="an-item">
+                                <div class="row title">
+                                    <div class="col-md-1 col-sm-1 col-xs-1 item-image">
+                                        <img src="../../static/rent/image/Photo-Tripod.png" width="60px" height="60px"></img>
+                                    </div>
+                                    <div class="col-md-11 col-sm-11 col-xs-11 item-name">
+                                        <div>
+                                        {{item.name}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row description">
+                                    <div class="col-md-1 col-sm-1 col-xs-12 row-title description-title">Description</div>
+                                    <div class="col-md-11 col-sm-11 col-xs-12 row-content description-content">
+                                        <p>{{item.description}}</p>
+                                    </div>
+                                </div>
+                                <div class="row reward">
+                                    <div class="col-md-1 col-sm-1 col-xs-12 row-title reward-title">Reward</div>
+                                    <div class="col-md-11 col-sm-11 col-xs-12 row-content reward-content"><p>{{item.reward}}</p></div>
+                                </div>
+                                <div class="row lender">
+                                    <div class="col-md-1 col-sm-1 col-xs-12 row-title lender-title">Lender</div>
+                                    <div class="col-md-11 col-sm-11 col-xs-12 row-content lender-content">
+                                        <div class="row lender-row">
+                                            <div class="col-md-1 col-sm-2 col-xs-12">
+                                                <img src="{% url 'userpicture' item.lender.id%}" width="37px" height="37px">
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-12 lender-name">
+                                                {{item.lender.first_name}}
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-12 lender-rate">
+                                                stars here
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10"></div>
+                                    <div class="col-md-2 request-btn-container">
+                                        <input type="hidden" id="itemid" name="itemid" value="{{item.id}}">
+                                        <div class="request-btn clickable">Request</div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}                       
+                        </div>
+
+                        <div class="clickable nodisplay" id="more">
+                            More
+                        </div>
+                        <div id="cant-find">
+                            Couldn't find the item you're looking for?
+                        </div>
+                        <div id="send-request-container">
+                            <div id="send-request-btn">
+                                Send Request to Other Users
+                            </div>
+                        </div>
+                        <form class="nodisplay" id="form">
+                            <div class="row" id="form1">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2 form-title">I am looking for: </div>
+                                <div class="col-md-8">
+                                    <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="  E.g. Tripod"/>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                            <div class="row" id="form2">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2 form-title">Description: </div>
+                                <div class="col-md-8">
+                                    <textarea id="form-description" rows="4" name="form-description" placeholder="  Describe your requesting item"></textarea>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                            <div class="row" id="form3">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2 form-title">From: </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            <input type='text' class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="form3">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2 form-title">To: </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type='text' class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $('#datetimepicker1').datetimepicker();
+                                        $('#datetimepicker2').datetimepicker({
+                                            useCurrent: false //Important! See issue #1075
+                                        });
+                                        $("#datetimepicker1").on("dp.change", function (e) {
+                                            $('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+                                        });
+                                        $("#datetimepicker2").on("dp.change", function (e) {
+                                            $('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
+                                        });
+                                    });
+                                </script>
+                            <div class="row" id="form4">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2 form-title">Reward: </div>
+                                <div class="col-md-8">
+                                    <input type="text" name="reward" id="reward" placeholder="  E.g. $4 per day"/>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                            <div class="row" id="form4">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-8">
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" id="checkbox" value="yes">Reward as the helper requests</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </form>
+                        <div id="send-request-container">
+                            <div class="nodisplay" id="send">
+                                Send
+                            </div>
+                        </div>
+                        <div class="nodisplay" id="success-container">
+                            <div>Your request has been posted.</div>
+                            <div>Go to My Request to see more.</div>
+                        </div>
+                        <div></div>
+                        
+      
+                    </div>
+                    
+                </div>
+ 
+                <div class="hidden-xs col-sm-3 col-md-3" id="could-you-help-peer-container">
+                    <div class="" id="help-peer-title">
+                        Could you help your peers?
+                    </div>
+                    <div class="peer-item-container">
+                        <img src="Photo-Tripod.png" width="82px" height="82px"></img>
+                        <div class="peer-item-name">
+                            Bike
+                        </div>
+                        <div class="peer-item-viewdetail">
+                            View Detail
+                        </div>
+                    </div>
+                    <div class="peer-item-container">
+                        <img src="Photo-Tripod.png" width="82px" height="82px"></img>
+                        <div class="peer-item-name">
+                            Bike
+                        </div>
+                        <div class="peer-item-viewdetail">
+                            View Detail
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

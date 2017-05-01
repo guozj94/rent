@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>web design final</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/myoffers.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+				</button>
+				<a href="index.html" class="navbar-brand">
+					<img alt="Brand" src="../../static/rent/image/brand.png">
+				</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right" id="nav-menu">
+                    <li>Offer My Item</li>
+                    <li>Categories</li>
+                    <li>My Offers</li>
+                    <li>My Requests</li>
+                    <li><i class="fa fa-search" aria-hidden="true"></i></li>
+                    <li id="nav-user">
+                         <img src="../../static/rent/image/avatar.png" alt="">
+                         <!--<p>Tom</p>-->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <section class="main-container">
+            <div class="">
+                <form method="GET" action="{% url 'search' %}">
+                <div class="row" id="search">
+                    <div class="col-xs-9 col-xs-9 col-sm-9 col-md-9" id="searchbar-container">
+                        <input type="text" id="searchbar" name="searchbar" placeholder="  Search item"/>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 clickable" id="search-btn-container">
+                        <button type="submit" class="clickable btn btn-primary" id="search-btn">
+                            Search
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            
+            
+        </section>
+        
+        <section class="main-container">
+            <div class="h2">
+                Popular Items You May Be Interested In 
+            </div>
+			<div class="container">
+				<div class="row">
+
+				    <div class="col-md-3">
+				        <ul class="categories">
+				            <li>Outdoor</li>
+				            
+				        </ul>
+			            <div class="thumbnails">
+    				        <a href="">  
+    				      	    <img src="./image/houseproxy/BG.png" alt="...">
+    			            </a>
+    			            <div class="">
+    				            <div class="h3">Bike</div>
+    				            <div class="caption2">Money</div>
+    			            </div>
+				        </div>
+			        </div>
+				  
+
+			        <div class="col-md-3">
+			            <ul class="categories">
+				            <li>Outdoor</li>
+				            
+				        </ul>
+			            <div class="thumbnails">
+    				        <a href="">  
+    				      	    <img src="./image/houseproxy/BG.png" alt="...">
+    			            </a>
+    			            <div class="">
+    				            <div class="h3">Bike</div>
+    				            <div class="caption2">Money</div>
+    			            </div>
+				        </div>
+			        </div>
+			        
+			        <div class="col-md-3">
+			            <ul class="categories">
+				            <li>Outdoor</li>
+				            
+				        </ul>
+			            <div class="thumbnails">
+    				        <a href="">  
+    				      	    <img src="./image/houseproxy/BG.png" alt="...">
+    			            </a>
+    			            <div class="">
+    				            <div class="h3">Bike</div>
+    				            <div class="caption2">Money</div>
+    			            </div>
+				        </div>
+			        </div>
+				  
+
+			        <div class="col-md-3">
+			            <ul class="categories">
+				            <li>Outdoor</li>
+				            
+				        </ul>
+			            <div class="thumbnails">
+    				        <a href="">  
+    				      	    <img src="./image/houseproxy/BG.png" alt="...">
+    			            </a>
+    			            <div class="">
+    				            <div class="h3">Bike</div>
+    				            <div class="caption2">Money</div>
+    			            </div>
+				        </div>
+			        </div>
+
+			    
+
+				</div>
+			</div>
+		</section>
+		
+		<section class="main-container">
+            <div class="h2">
+                Items You Might Be Able to Lend 
+            </div>
+			<div class="container">
+				<div class="row">
+
+				    <div class="col-md-3">
+		
+			            <div class="thumbnails">
+    				        <a href="">  
+    				      	    <img src="./image/houseproxy/BG.png" alt="...">
+    			            </a>
+    			            <div class="">
+    				            <div class="h3">Bike</div>
+    				            <div class="caption2">Money</div>
+    			            </div>
+				        </div>
+			        </div>
+				  
+
+			        <div class="col-md-3">
+			           
+			            <div class="thumbnails">
+    				        <a href="">  
+    				      	    <img src="./image/houseproxy/BG.png" alt="...">
+    			            </a>
+    			            <div class="">
+    				            <div class="h3">Bike</div>
+    				            <div class="caption2">Money</div>
+    			            </div>
+				        </div>
+			        </div>
+			        
+			        <div class="col-md-3">
+			           
+			            <div class="thumbnails">
+    				        <a href="">  
+    				      	    <img src="./image/houseproxy/BG.png" alt="...">
+    			            </a>
+    			            <div class="">
+    				            <div class="h3">Bike</div>
+    				            <div class="caption2">Money</div>
+    			            </div>
+				        </div>
+			        </div>
+				  
+
+			        <div class="col-md-3">
+			          
+			            <div class="thumbnails">
+    				        <a href="">  
+    				      	    <img src="./image/houseproxy/BG.png" alt="...">
+    			            </a>
+    			            <div class="">
+    				            <div class="h3">Bike</div>
+    				            <div class="caption2">Money</div>
+    			            </div>
+				        </div>
+			        </div>
+
+			    
+
+				</div>
+			</div>
+		</section>
+		
+		
+    
+        <!--<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-right offcanvas" role="navigation">-->
+        <!--  <a class="navmenu-brand" href="#">Brand</a>-->
+        <!--  <ul class="nav navmenu-nav">-->
+        <!--    <li class="active"><a href="#">Home</a></li>-->
+        <!--    <li><a href="#">Link</a></li>-->
+        <!--    <li><a href="#">Link</a></li>-->
+        <!--  </ul>-->
+        <!--</nav>-->
+        <!--<div class="navbar navbar-default navbar-fixed-top">-->
+        <!--  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">-->
+        <!--    <span class="icon-bar"></span>-->
+        <!--    <span class="icon-bar"></span>-->
+        <!--    <span class="icon-bar"></span>-->
+            
+        <!--  </button>-->
+        <!--</div>-->
+    
+    
+        
+        <!--<p>My first paragraph.</p>-->
+        
+        <!--<button class="btn btn-primary">-->
+        <!--    Primary Button-->
+        <!--</button>-->
+        
+        <!--<button class="btn btn-secondary">-->
+        <!--    Secondary Button-->
+        <!--</button>-->
+        
+        
+        
+ 
+    
+    </body>
+</html>

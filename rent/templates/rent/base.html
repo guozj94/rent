@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block pagetitle %}{% endblock %}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- External Static Files -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+        <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+
+
+        {% block customized_static %}{% endblock %}
+
+</head>
+<body>
+	<nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+				</button>
+				<a href="index.html" class="navbar-brand">
+					<img alt="Brand" src="../../static/rent/image/brand.png">
+				</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right" id="nav-menu">
+                    <li>Offer My Item</li>
+                    <li>Categories</li>
+                    <li>My Offers</li>
+                    <li>My Requests</li>
+                    <li><i class="fa fa-search" aria-hidden="true"></i></li>
+                    <li id="nav-user">
+                         <img src="../../static/rent/image/avatar.png" alt="">
+                         <!--<p>Tom</p>-->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% block bodycontent %}{% endblock %}
+</body>
+</html>

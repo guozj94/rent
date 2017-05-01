@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>web design final</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+				</button>
+				<a href="index.html" class="navbar-brand">
+					<img alt="Brand" src="./image/BRAND.png">
+				</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right" id="nav-menu">
+                    <li>Offer My Item</li>
+                    <li>Categories</li>
+                    <li>My Offers</li>
+                    <li>My Requests</li>
+                    <li><i class="fa fa-search" aria-hidden="true"></i></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <h3>Add New Item</h3>
+            <div class="form-group">
+              <label class="col-md-4 col-md-offset-2 control-label">Item Name*</label>  
+              <div class="col-md-4">
+              <input id="item_name" name="item_name" type="text" placeholder="your game name" class="form-control input-md" required="" maxlength="50">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 col-md-offset-2 control-label">Description*</label>  
+              <div class="col-md-4">
+              <textarea name="item_description" type="text" placeholder="Description" class="form-control input-md" maxlength="1000"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 col-md-offset-2 control-label">Reward*</label>
+              <div class="col-md-4">
+
+                    <label class="radio-inline"><input type="radio" name="reward">reward</label>
+                    <label class="radio-inline"><input type="radio" name="no_reward">no rewards</label>
+              </div>
+            
+            </div>
+            <div class="form-group">
+              <div class="col-md-16">
+                <button id="add_button" type="button" name="add_button" class="btn btn-primary" style="width: 250px;">Add Item</button>
+              </div>
+            </div>
+            
+
+        </div>
+        
+   
+         
+    </body>
+</html>

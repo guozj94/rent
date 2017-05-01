@@ -1,0 +1,80 @@
+@import 'elements.css';
+
+.clear{
+  clear:both;
+}
+
+.item_panel {
+  width: 1140px;
+  height: 565px;
+  border-radius: 5px;
+  border: solid 2px #dde5ed;
+}
+
+.profile_picture {
+    width: 101px;
+    height: 101px;
+    background:red;
+    margin:auto;
+}
+
+.item {
+  background:blue;
+  border:1px solid black;
+}
+
+.center {
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.text-center{
+  text-align:center;
+}
+
+.margin-between-element{
+  margin-bottom: 20px;
+}
+
+.fa-star{
+  color:#FFBC30;
+}
+
+.notification{
+  color: #23ce6b;
+}
+
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none; 
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events: all;
+}
+
+.modal-footer{
+  border:none;
+}
+
+.modal-header{
+  border:none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
