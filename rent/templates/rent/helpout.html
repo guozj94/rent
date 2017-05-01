@@ -50,15 +50,15 @@
                                 <img class="col-lg-6 col-md-6 col-sm-6 col-xs-6" src="../../static/rent/image/bike.jpg">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
                             </div>
-                            <div class="h2 center margin-between-element">Bike</div>
-                            <div class="margin-between-element">Meditation salvia beard, iPhone post-ironic sartorial poke green juice cronut whatever tofu DIY 90's mlkshk af. Mumblecore godard gastropub retro occupy slow-carb shabby chic, vexillologist kickstarter tote bag. </div>
+                            <div class="h2 center margin-between-element">{{request_item.name}}</div>
+                            <div class="margin-between-element">{{request_item.description}} </div>
                             <div class="row margin-between-element">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 h3">Duration</div>
-                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">Apr.14 - Apr.18</div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{request_item.need_from}} - {{request_item.need_to}}</div>
                             </div>
                             <div class="row margin-between-element">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 h3">Reward</div>
-                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">$10 Amazon Giftcard or The price you requests</div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{request_item.reward}}</div>
                             </div>
                         </div>
                     </div>
@@ -70,10 +70,10 @@
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">Requester</div></div>
                             <div class="row margin-between-element">
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
-                                <img class="col-lg-8 col-md-8 col-sm-8 col-xs-8" src="../../static/rent/image/avatar_2.jpeg">
+                                <img class="col-lg-8 col-md-8 col-sm-8 col-xs-8" src="{% url 'userpicture' request_item.borrower.id %}">
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
                             </div>
-                            <div class="body center margin-between-element">Summer</div>
+                            <div class="body center margin-between-element">{{request_item.borrower.first_name}}</div>
                             <div class="row">
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
                                 <div class="rating center col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -92,9 +92,12 @@
                     <div class="center margin-between-element main-container">
                         <div class="row"></div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                        <form method="GET" action="{% url 'search' %}">
                         <button class="btn btn-primary btn-primary-blue col-md-3">Not This Time</button>
+                        </form>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
-                        <button class="btn btn-primary btn-primary-blue col-md-3" data-toggle="modal" data-target="#ICanHelp-Modal">I Can Help</button>
+                        <button class="btn btn-primary btn-primary-blue col-md-3" data-toggle="modal" data-target="#ICanHelp-Modal" id="i-can-help">I Can Help</button>
+
                         
                         <!-- Modal #I Can Help-->
                         <div id="ICanHelp-Modal" class="modal fade" role="dialog">

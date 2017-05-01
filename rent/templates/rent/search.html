@@ -184,24 +184,18 @@
                     <div class="" id="help-peer-title">
                         Could you help your peers?
                     </div>
+                    {% for j in help_peer %}
+                    <form method="GET" action="{% url 'help_peer_detail' j.id %}">
                     <div class="peer-item-container">
-                        <img src="Photo-Tripod.png" width="82px" height="82px"></img>
+                        <img src="{{j.picture}}" width="82px" height="82px"></img>
                         <div class="peer-item-name">
-                            Bike
+                            {{j.name}}
                         </div>
                         <div class="peer-item-viewdetail">
-                            View Detail
+                            <button type="submit">View Detail</button>
                         </div>
                     </div>
-                    <div class="peer-item-container">
-                        <img src="Photo-Tripod.png" width="82px" height="82px"></img>
-                        <div class="peer-item-name">
-                            Bike
-                        </div>
-                        <div class="peer-item-viewdetail">
-                            View Detail
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

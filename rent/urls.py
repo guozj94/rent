@@ -12,4 +12,5 @@ urlpatterns = [
 	url(r'^incomingoffer$', rent_views.incomingoffer, name='incomingoffer'),
 	url(r'^confirmedoffer$', rent_views.confirmedoffer, name='confirmedoffer'),
 	url(r'^myalloffer$', rent_views.myalloffer, name='myalloffer'),
+	url(r'^help_peer_detail/(?P<id>\S+)$', rent_views.help_peer_detail, name='help_peer_detail'),
 ]

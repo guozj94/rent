@@ -39,7 +39,7 @@ class OfferingItem(models.Model):
 	content_type = models.CharField(max_length=50, blank=True, null=True)
 	description = models.TextField(max_length=300, blank=True, null=True)
 	reward = models.CharField(max_length=100, blank=True)
-	post_date = models.DateTimeField(auto_now_add=True)
+	post_date = models.DateField(auto_now_add=True, blank=True, null=True)
 	active = models.BooleanField(default=True, blank=False)
 	available_from = models.DateField(blank=True, null=True)
 	available_to = models.DateField(blank=True, null=True)
@@ -54,7 +54,7 @@ class RequestingItem(models.Model):
 	content_type = models.CharField(max_length=50, blank=True, null=True)
 	description = models.TextField(max_length=300, blank=True, null=True)
 	reward = models.CharField(max_length=100, blank=True, null=True)
-	post_date = models.DateTimeField(auto_now_add=True)
+	post_date = models.DateField(auto_now_add=True, blank=True, null=True)
 	active = models.BooleanField(default=True, blank=False)
 	need_from = models.DateField(blank=True, null=True)
 	need_to = models.DateField(blank=True, null=True)
@@ -67,6 +67,7 @@ class OfferResponse(models.Model):
 	borrower = models.ForeignKey(User)
 	start_time = models.DateField(blank=True, null=True)
 	end_time = models.DateField(blank=True, null=True)
+	post_date = models.DateField(auto_now_add=True, blank=True, null=True)
 	borrower_note = models.TextField(max_length=300, blank=True)
 	reward = models.CharField(max_length=100, blank=True)
 
@@ -75,10 +76,12 @@ class OfferResponse(models.Model):
 
 
 class RequestResponse(models.Model):
-	item = models.ForeignKey(OfferingItem)
+	item = models.ForeignKey(RequestingItem) # item to which are being responded
+	responding_item = models.ForeignKey(OfferingItem) # item being offered as a response, if none, user create new one
 	lender = models.ForeignKey(User)
 	start_time = models.DateField(blank=True, null=True)
 	end_time = models.DateField(blank=True, null=True)
+	post_date = models.DateField(auto_now_add=True, blank=True, null=True)
 	lender_note = models.TextField(max_length=300, blank=True)
 	reward = models.CharField(max_length=100, blank=True)
 

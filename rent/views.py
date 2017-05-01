@@ -35,7 +35,17 @@ def search(request):
 	all_items = OfferingItem.objects.filter(name__contains=keyword)
 	print all_items
 	context['items'] = all_items
+	help_peer = RequestingItem.objects.all()[:3]
+	context['help_peer'] = help_peer
 	return render(request, 'rent/search.html', context)
+
+def help_peer_detail(request, id):
+	if not request.GET or not id:
+		return redirect('search')
+	context = {}
+	request_item = RequestingItem.objects.get(id=id)
+	context['request_item'] = request_item
+	return render(request, 'rent/helpout.html', context)
 
 def search_ajax(request):
 	keyword = request.GET.get('keyword', False)
