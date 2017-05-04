@@ -75,6 +75,17 @@ function errorThrow() {
 
 }
 
+function getCSRFToken() {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        if (cookies[i].startsWith("csrftoken=")) {
+            return cookies[i].substring("csrftoken=".length, cookies[i].length);
+        }
+    }
+    return "unknown";
+}
+
 $(document).ready(function() {
     getSelectItem();
+    submitOffer();
 });

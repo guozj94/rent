@@ -53,7 +53,20 @@ def help_peer_detail(request, id):
 def submit_offer(request):
 	if request.method != 'POST':
 		return redirect('search')
-	
+	response = RequestResponse()
+	item = RequestingItem.objects.get(id=request.POST.get('requestingItem', False))
+	responding_item = OfferingItem.objects.get(id=request.POST.get('selectItem', False))
+	lender = responding_item.lender # dummy, you can delete, but beware of the data in database
+	reward = responding_item.reward
+	response.item = item
+	response.responding_item =responding_item
+	response.lender = lender
+	response.reward = reward
+	print item, responding_item, lender, reward
+	response.save()
+	data = []
+	jsonobj = json.dumps(data, cls=DjangoJSONEncoder)
+	return HttpResponse(jsonobj, content_type='application/json')
 
 
 def add_new(request):
