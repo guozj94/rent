@@ -40,12 +40,30 @@ def search(request):
 	return render(request, 'rent/search.html', context)
 
 def help_peer_detail(request, id):
-	if not request.GET or not id:
+	print request.GET, id
+	if not id:
 		return redirect('search')
 	context = {}
 	request_item = RequestingItem.objects.get(id=id)
 	context['request_item'] = request_item
+	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_active
+	context['my_items'] = my_items
 	return render(request, 'rent/helpout.html', context)
+
+def submit_offer(request):
+	if request.method != 'POST':
+		return redirect('search')
+	
+
+
+def add_new(request):
+	if request.method != 'GET':
+		return redirect('search')
+	context = {}
+	context['request_item_id'] = request.GET.get('requestid', False)
+	if not context['request_item_id']:
+		return redirect('search')
+	return render(request, 'rent/add_new.html', context)
 
 def search_ajax(request):
 	keyword = request.GET.get('keyword', False)

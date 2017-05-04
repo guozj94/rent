@@ -1,45 +1,23 @@
- <html>
-     <head>
-        <title>web design final</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ {% extends "rent/base.html" %}
+
+ {% block title %}
+ Help Your Peer 
+ {% endblock %}
+
+{% block customized_static %}
+    {% load static %}
         <link rel="stylesheet" type="text/css" href="../../static/rent/css/style.css">
         <link rel="stylesheet" type="text/css" href="../../static/rent/css/myoffers.css">
         <link rel="stylesheet" type="text/css" href="../../static/rent/css/elements.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-					<span class="glyphicon glyphicon-menu-hamburger"></span>
-				</button>
-				<a href="index.html" class="navbar-brand">
-					<img alt="Brand" src="../../static/rent/image/brand.png">
-				</a>
-            </div>
-            
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right" id="nav-menu">
-                    <li>Offer My Item</li>
-                    <li>Categories</li>
-                    <li>My Offers</li>
-                    <li>My Requests</li>
-                    <li><i class="fa fa-search" aria-hidden="true"></i></li>
-                    <li id="nav-user">
-                         <img src="../../static/rent/image/avatar.png" alt="">
-                         <!--<p>Tom</p>-->
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <script type="text/javascript" src="../../static/rent/js/helpout.js"></script>
+{% endblock %}
+
+{% block bodycontent %}
         
         <section class="main-container container">
+            <input type="hidden" name="" value="{{request_item.id}}">
             <div class="h1 center margin-between-element">Could you help your peers out?</div>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -92,41 +70,16 @@
                     <div class="center margin-between-element main-container">
                         <div class="row"></div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
-                        <form method="GET" action="{% url 'search' %}">
-                        <button class="btn btn-primary btn-primary-blue col-md-3">Not This Time</button>
-                        </form>
+                        <button class="btn btn-primary btn-primary-blue col-md-3 col-lg-3 col-xm-3 col-sm-3">Not This Time</button>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
-                        <button class="btn btn-primary btn-primary-blue col-md-3" data-toggle="modal" data-target="#ICanHelp-Modal" id="i-can-help">I Can Help</button>
-
+                        <button class="btn btn-primary btn-primary-blue col-md-3 col-lg-3 col-xm-3 col-sm-3" data-toggle="modal" data-target="#myOffer">I Can Help</button>
                         
                         <!-- Modal #I Can Help-->
+                        <!-- If ajax succeeds, append content then -->
                         <div id="ICanHelp-Modal" class="modal fade" role="dialog">
-                            <div class="vertical-alignment-helper">
-                                <div class="modal-dialog vertical-align-center">
-                                
-                                    <!-- Modal Content-->
-                                    <div class="modal-content container">
-                                        <div class="modal-header margin-between-element">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <div class="h4 modal-title notification">A notification has been sent to the requester</div>
-                                        </div>
-                                        <div class="row margin-between-element">
-                                            <div class="modal-body">
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
-                                                <p class="col-lg-8 col-md-8 col-sm-8 col-xs-8">This transaction has been added to My Offers page. Please contact the requester to discuss more details about the item, exchange location and payment.</p>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer row margin-between-element">
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
-                                            <button type="button" class="btn btn-primary btn-primary-blue col-lg-3 col-md-3 col-sm-3 col-xs-3" data-dismiss="modal" data-toggle="modal" data-target="#myOffer">Go to My Offers</button>
-                                            <button type="button" class="btn btn-primary btn-primary-blue col-lg-3 col-md-3 col-sm-3 col-xs-3" data-dismiss="modal">Contact Requester</button>
-                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
+
                         
                          <!-- Modal #Go to My Offers-->
                         <div id="myOffer" class="modal fade" role="dialog">
@@ -148,11 +101,12 @@
                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
                                                         <div class="dropdown col-lg-10 col-md-10 col-sm-10 col-xs-10">
                                                             <!--<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>-->
-                                                            <button class="btn btn-secondary btn-secondary-gray dropdown-toggle col-lg-12 col-md-12 col-sm-12" type="button" data-toggle="dropdown">Race Bike<span class="caret"></span></button>
+                                                            <button class="btn btn-secondary btn-secondary-gray dropdown-toggle col-lg-12 col-md-12 col-sm-12" type="button" data-toggle="dropdown" id="dropdown-btn">Race Bike<span class="caret"></span></button>
                                                             <ul class="dropdown-menu col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                                <li><a href="#">Tripod</a></li>
-                                                                <li><a href="#">Dongle</a></li>
-                                                                <li><a href="#">Universal Methods of Design</a></li>
+                                                            <!-- list of things you can offer -->
+                                                            {% for j in my_items %}
+                                                                <li><a href="#">{{j.name}}</a><input type="hidden" name="" value="{{j.id}}"></li>
+                                                            {% endfor %}
                                                             </ul>
                                                         </div><div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
                                                     </div>
@@ -170,7 +124,10 @@
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                                                         <p>This is the first time you lend this item?</p>
                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                                                        <button type="button" class="btn btn-secondary btn-secondary-green col-md-10">Add New Item</button>
+                                                        <form method="GET" action="{% url 'add_new' %}">
+                                                        <input type="hidden" name="requestid" value="{{request_item.id}}">
+                                                        <button type="submit" class="btn btn-secondary btn-secondary-green col-md-10">Add New Item</button>
+                                                        </form>
                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
                                                     </div>
                                                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
@@ -179,7 +136,7 @@
                                         </div>
                                         <div class="modal-footer row margin-between-element">
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
-                                            <button type="button" class="btn btn-primary btn-primary-blue col-lg-4 col-md-4 col-sm-4 col-xs-4" data-dismiss="modal">Confirm</button>
+                                            <button type="button" class="btn btn-primary btn-primary-blue col-lg-4 col-md-4 col-sm-4 col-xs-4"  data-dismiss="modal" data-toggle="modal" data-target="#ICanHelp-Modal" id="submit-offer">Confirm</button>
                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                                         </div>
                                     </div>
@@ -190,6 +147,4 @@
                 </div>
             </div>
         </section>
-    </body>    
-    
-</html>    
+{% endblock %}  
