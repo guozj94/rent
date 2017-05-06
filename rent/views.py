@@ -33,14 +33,14 @@ def search(request):
 	context = {}
 	keyword = request.GET.get('searchbar', False)
 	all_items = OfferingItem.objects.filter(name__contains=keyword)
-	print all_items
+	#print all_items
 	context['items'] = all_items
 	help_peer = RequestingItem.objects.all()[:3]
 	context['help_peer'] = help_peer
 	return render(request, 'rent/search.html', context)
 
 def help_peer_detail(request, id):
-	print request.GET, id
+	#print request.GET, id
 	if not id:
 		return redirect('search')
 	context = {}
@@ -62,7 +62,7 @@ def submit_offer(request):
 	response.responding_item =responding_item
 	response.lender = lender
 	response.reward = reward
-	print item, responding_item, lender, reward
+	#print item, responding_item, lender, reward
 	response.save()
 	data = []
 	jsonobj = json.dumps(data, cls=DjangoJSONEncoder)
@@ -82,7 +82,7 @@ def search_ajax(request):
 	keyword = request.GET.get('keyword', False)
 	all_items = OfferingItem.objects.filter(name__contains=keyword)
 	jsonobj = serializers.serialize('json', all_items)
-	print jsonobj
+	#print jsonobj
 	return HttpResponse(jsonobj, content_type='application/json')
 
 def get_datetime(date_str):
@@ -115,7 +115,7 @@ def send_request_ajax(request):
 	request_item.reward = reward
 	request_item.borrower = User.objects.get(id=1) #request.user
 	request_item.save()
-	print name, description, need_from, need_to
+	#print name, description, need_from, need_to
 	data = []
 	jsonobj = json.dumps(data, cls=DjangoJSONEncoder)
 	return HttpResponse(jsonobj, content_type='application/json')
@@ -125,7 +125,7 @@ def incomingoffer(request):
 	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_avtive
 	incoming_offer = OfferResponse.objects.filter(item__in=my_items)
 	context['incoming_offer'] = incoming_offer
-	print my_items, incoming_offer
+	#print my_items, incoming_offer
 	return render(request, 'rent/myoffers-incoming.html', context)
 
 def confirmedoffer(request):
@@ -133,7 +133,7 @@ def confirmedoffer(request):
 	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_active
 	confirmed_offer = Transaction.objects.filter(is_offer=True, offer_item__in=my_items)
 	context['confirmed_offer'] = confirmed_offer
-	print confirmed_offer
+	#print confirmed_offer
 	return render(request, 'rent/myoffers-confirmed.html', context)
 
 def myalloffer(request):
@@ -144,7 +144,7 @@ def myalloffer(request):
 
 def get_user_photo(request, id):
 	user = get_object_or_404(User, id=id)
-	print user.profile.photo
+	#print user.profile.photo
 	if not user.profile.photo:
 		raise Http404
 	return HttpResponse(user.profile.photo, content_type=user.profile.content_type)

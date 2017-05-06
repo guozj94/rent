@@ -15,5 +15,4 @@ urlpatterns = [
 	url(r'^help_peer_detail/(?P<id>\S+)$', rent_views.help_peer_detail, name='help_peer_detail'),
 	url(r'^add_new$', rent_views.add_new, name='add_new'),
 	url(r'^submit_offer$', rent_views.submit_offer, name='submit_offer'),
-
 ]
