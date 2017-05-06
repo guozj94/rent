@@ -27,6 +27,7 @@
   margin: auto;
   display: block;
   text-align: center;
+  float: none;
 }
 
 .text-center{
@@ -73,8 +74,93 @@
   border:none;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
+
+
+#item-image {
+  height: 100px;
+  width: 100px;
+  /*background: yellow;*/
+  display: inline-block;
+}
+
+#item-image-interaction {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+#form_add_new {
+  background: rgba(163, 210, 255, 0.08);
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.form-row {
+  /*margin-bottom: 30px;*/
+}
+
+.form-rewards-row {
+  margin-bottom: 20px;
+}
+
+#btn-addreward {
+  height: 40px;
+  border-radius: 5px;
+}
+
+.form-addreward-support-text {
+  margin-top: 13px;
+}
+
+#form-addreward-support-text-delete {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#btn-additem {
+  margin-top: 40px;
+}
+
+.home-subtitle {
+  margin-bottom: 40px;
+}
+
+/*----*/
+.popular-item {
+  position: relative
+}
+
+.popular-item-category {
+  position: relative;
+  text-align: right;
+  padding-right: 10px;
+  top: -25px;
+}
+
+.popular-img-container {
+  width: 100%;
+  padding-bottom: 75%;
+  background: yellow;
+}
+
+.popular-item-img {
+  width: 100%;
+  padding-bottom: 75%;
+  background-color: green;
+}
+
+.popular-item-renter-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: gray;
+}
+
+.popular-item-detail {
+  padding: 10px;
+	border: solid 1px rgba(151, 151, 151, 0.4);
+}
+
+.popular-item-margin {
+  margin-top: 5px;
 }

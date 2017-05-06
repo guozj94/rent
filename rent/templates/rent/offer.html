@@ -1,0 +1,106 @@
+
+{% extends "rent/base.html" %}
+{% load static %}
+
+{% block bodycontent %} 
+<div class="main-container container">
+    <div class="h1">Add New Item</div>
+    <form id="form_add_new">
+        <!--<div class="row">-->
+        <!--    <div class="body-dark col-md-3">Item Name</div>-->
+
+        <!--</div>-->
+        <div class="row form-row">
+            <div class="col-md-3 form-title">Item Name</div>
+            <div class="col-md-9">
+                <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="  E.g. Tripod"/>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row form-row">
+            <div class="col-md-3 form-title">Item Picture</div>
+            <!--<div class="col-md-9">-->
+            <!--    <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="  E.g. Tripod"/>-->
+            <!--</div>-->
+            <div class="col-md-9">
+                <div id="item-image">
+                    <img src="../../static/rent/image/uploadicon.png" alt="">
+                </div>
+                <div id="item-image-interaction">
+                    <input type="file" name="pic" accept="image/*">
+                    <div class="body-dark">JPG or PNG</div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row form-row" id="">
+            <div class="col-md-3 form-title">Description</div>
+            <div class="col-md-9">
+                <textarea id="form-description" rows="4" name="form-description" placeholder="  Describe your requesting item"></textarea>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row form-row" id="form1">
+            <div class="col-md-3 form-title">Rewards</div>
+            <div class="col-md-9">
+                <div class="form-rewards-row">
+                    <input type="radio" name="reward-option" value="yes-reward" checked="checked" > Need rewards
+                    <input type="radio" name="reward-option" value="no-reward"> Don't need rewards<br>
+                </div>
+                <div class="form-rewards-row" id="new-reward-list">
+                    <div class="body form-rewards-row">Please Enter Your Prefered Rewards</div>
+                    <div class="row form-rewards-row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="  E.g. Tripod"/>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+
+                    <div class="row form-rewards-row">
+
+                        <div class="col-md-1 form-addreward-support-text">
+                            OR
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="  E.g. Tripod"/>
+                        </div>
+                        <div class="col-md-1 form-addreward-support-text" id="form-addreward-support-text-delete">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-10">
+                            <button class="btn-secondary btn-secondary-blue btn-fullwidth" id="btn-addreward"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Add a Reward</button>
+                        </div>
+                        <div class="col-md-1">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="caption-2">* Your acceptable rewards will be sent to requesters for their reference.</div>
+            </div>
+        </div>
+        <hr>
+
+        <button class="btn btn-primary btn-primay-blue center" id="btn-additem">Add Item</button>
+
+
+    </form>
+
+
+
+
+</div>
+
+{% endblock %}

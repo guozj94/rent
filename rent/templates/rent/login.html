@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- External Static Files -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/search.css">
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/style.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+        <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+
+</head>
+<body>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userModal">Log In</button>
+    <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modal_title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="tabs">
+                      <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#sign_in">Sign In</a></li>
+                        <li><a data-toggle="tab" href="#sign_up">Sign Up</a></li>
+                      </ul>
+                      <div class="table-content">
+                        <!-- sign in tab-->
+                        <div id="sign_in" class="tab-pane fade in active">
+                            <form>
+                              <div class="form-group">
+                                <label for="user_name" class="form-control-label">User Name:</label>
+                                <input type="text" class="form-control" id="user_name">
+                              </div>
+                              <div class="form-group">
+                                <label for="password" class="form-control-label">Password:</label>
+                                <input type="text" class="form-control" id="password">
+                              </div>
+                            </form>
+                            <button type="button" class="btn btn-primary">Sign In</button>
+                          </div>
+                          <div id="sign_up" class="tab-pane fade">
+                            <form>
+                              <div class="form-group">
+                                <label for="user_name" class="form-control-label">User Name:</label>
+                                <input type="text" class="form-control" id="user_name">
+                              </div>
+                              <div class="form-group">
+                                <label for="password" class="form-control-label">Password:</label>
+                                <input type="text" class="form-control" id="password">
+                              </div>
+                                <div class="form-group">
+                                <label for="password" class="form-control-label">Confirm Password:</label>
+                                <input type="text" class="form-control" id="password">
+                              </div>
+                            </form>
+
+                            <button type="button" class="btn btn-primary">Register</button>
+                          </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+
+</body>

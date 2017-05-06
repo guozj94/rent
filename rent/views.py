@@ -154,3 +154,7 @@ def get_item_photo(request, id):
 	if not item.picture:
 		raise Http404
 	return HttpResponse(item.picture, content_type=item.content_type)
+
+def offer_item(request):
+	context=[]
+	return render(request, 'rent/offer.html', context)
