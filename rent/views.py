@@ -141,7 +141,8 @@ def confirmedoffer(request):
 
 def myalloffer(request):
 	context = {}
-	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_active
+	my_items = OfferingItem.objects.filter(lender=request.user) 
+	#request.user is_active
 	context['my_items'] = my_items
 	return render(request, 'rent/myoffers-myitems.html', context)
 
