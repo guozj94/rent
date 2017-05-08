@@ -182,7 +182,7 @@ def offer_item(request):
 							reward=form.cleaned_data['reward']) 
 	new_item.save()
 	print("saved")
-	return redirect(reverse('home'))
+	return redirect(reverse('myalloffer'))
 
 
 
