@@ -24,9 +24,12 @@ from django.core.mail import send_mail
 # from storages.backends.s3boto import S3BotoStorage
 from django.conf import settings
 from django.template.loader import render_to_string
+from rent.forms import *
+
 # Create your views here.
 
 def home(request):
+	print(request.user)
 	return render(request, 'rent/home.html', {})
 
 def search(request):
@@ -158,3 +161,38 @@ def get_item_photo(request, id):
 def offer_item(request):
 	context=[]
 	return render(request, 'rent/offer.html', context)
+
+
+@transaction.atomic
+def register(request):
+    context = {}
+
+    # Just display the registration form if this is a GET request.
+    if request.method == 'GET':
+        context['form'] = RegistrationForm()
+
+        return render(request, 'rent/register.html', context)
+
+    # Creates a bound form from the request POST parameters and makes the 
+    # form available in the request context dictionary.
+    form = RegistrationForm(request.POST)
+    context['form'] = form
+
+    # Validates the form.
+    if not form.is_valid():
+    	
+    	return render(request, 'rent/register.html', context)
+
+    # At this point, the form data is valid.  Register and login the user.
+    new_user = User.objects.create_user(username=form.cleaned_data['username'], 
+                                        password=form.cleaned_data['password1'],
+                                        #email=form.cleaned_data['email'],
+                                        first_name=form.cleaned_data['first_name'],
+                                        last_name=form.cleaned_data['last_name'])
+    new_user.save()
+
+    # Logs in the new user and redirects to his/her todo list
+    new_user = authenticate(username=form.cleaned_data['username'],
+                            password=form.cleaned_data['password1'])
+    login(request, new_user)
+    return redirect(reverse('home'))

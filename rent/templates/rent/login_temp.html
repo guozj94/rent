@@ -1,0 +1,29 @@
+{% extends "rent/base.html" %}
+
+
+
+{% block bodycontent %}    
+    {% if form.errors %}
+        <p style="color:red">
+            Incorrect user name and password.
+        </p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        <table>
+        <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        </table>
+
+        <input type="submit" value="Login" />
+        {% csrf_token %}
+    </form>
+
+
+{% endblock %}
