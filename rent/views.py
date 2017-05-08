@@ -38,7 +38,8 @@ def search(request):
 	all_items = OfferingItem.objects.filter(name__contains=keyword)
 	#print all_items
 	context['items'] = all_items
-	help_peer = RequestingItem.objects.all()[:3]
+	help_peer = RequestingItem.objects.all()[:4]
+	#print(help_peer)
 	context['help_peer'] = help_peer
 	return render(request, 'rent/search.html', context)
 
@@ -48,8 +49,9 @@ def help_peer_detail(request, id):
 		return redirect('search')
 	context = {}
 	request_item = RequestingItem.objects.get(id=id)
+	print(request_item.name)
 	context['request_item'] = request_item
-	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_active
+	my_items = OfferingItem.objects.filter(lender=request.user) #request.user is_active
 	context['my_items'] = my_items
 	return render(request, 'rent/helpout.html', context)
 
@@ -116,7 +118,7 @@ def send_request_ajax(request):
 	request_item.name = name
 	request_item.description = description
 	request_item.reward = reward
-	request_item.borrower = User.objects.get(id=1) #request.user
+	request_item.borrower = User.objects.get(id=request.user.id) #request.user
 	request_item.save()
 	#print name, description, need_from, need_to
 	data = []
@@ -181,8 +183,8 @@ def offer_item(request):
 							description=form.cleaned_data['description'],
 							reward=form.cleaned_data['reward']) 
 	new_item.save()
-	print("saved")
-	return redirect(reverse('home'))
+	print("time offered saved")
+	return redirect(reverse('myalloffer'))
 
 
 
@@ -190,20 +192,17 @@ def offer_item(request):
 def register(request):
     context = {}
 
-    # Just display the registration form if this is a GET request.
     if request.method == 'GET':
         context['form'] = RegistrationForm()
 
         return render(request, 'rent/register.html', context)
 
-    # Creates a bound form from the request POST parameters and makes the 
-    # form available in the request context dictionary.
     form = RegistrationForm(request.POST)
     context['form'] = form
 
     # Validates the form.
     if not form.is_valid():
-    	
+    	print("registration not valid")
     	return render(request, 'rent/register.html', context)
 
     # At this point, the form data is valid.  Register and login the user.
@@ -215,9 +214,18 @@ def register(request):
     new_user.save()
     new_profile = Profile(user=new_user)
     new_profile.save()
-
+    
     # Logs in the new user and redirects to his/her todo list
     new_user = authenticate(username=form.cleaned_data['username'],
                             password=form.cleaned_data['password1'])
     login(request, new_user)
     return redirect(reverse('home'))
+
+def my_requests(request):
+	context = {}
+	requested_items = RequestingItem.objects.filter(borrower=request.user)
+
+	context['requests'] = requested_items
+	help_peer = RequestingItem.objects.all()[:4]
+	context['help_peer'] = help_peer
+	return render(request, 'rent/my_requests.html', context)

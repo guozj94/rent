@@ -185,9 +185,10 @@
                         Could you help your peers?
                     </div>
                     {% for j in help_peer %}
+              
                     <form method="GET" action="{% url 'help_peer_detail' j.id %}">
                     <div class="peer-item-container">
-                        <img src="{{j.picture}}" width="82px" height="82px"></img>
+                        <img src="{{j.picture}}" width="82px" height="82px">
                         <div class="peer-item-name">
                             {{j.name}}
                         </div>
@@ -195,6 +196,7 @@
                             <button type="submit">View Detail</button>
                         </div>
                     </div>
+                    </form>
                     {% endfor %}
                 </div>
             </div>

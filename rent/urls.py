@@ -19,5 +19,6 @@ urlpatterns = [
 	url(r'^login$', auth_views.login, {'template_name':'rent/login_temp.html'}, name='login'),
  #    url(r'^logout$', auth_views.logout_then_login, name="logout"),
     #url(r'^register$', rent_views.register, name="register"),
-    url(r'^register$', rent_views.register, name="register")
+    url(r'^register$', rent_views.register, name="register"),
+    url(r'^my_requests$', rent_views.my_requests, name="my_requests")
 ]

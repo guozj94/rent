@@ -39,17 +39,18 @@
                       <div class="tab-content">
                         <!-- sign in tab-->
                         <div id="sign_in" class="tab-pane fade in active">
-                            <form method="POST" action="{% url 'register' %}" role="form">
+                            <form method="POST" action="{% url 'login' %}" role="form">
                               <div class="form-group">
                                 <label for="user_name" class="form-control-label">User Name:</label>
                                 <input type="text" class="form-control" id="user_name">
                               </div>
                               <div class="form-group">
                                 <label for="password" class="form-control-label">Password:</label>
-                                <input type="text" class="form-control" id="password">
+                                <input type="text" class="form-control" id="password" name="password">
                               </div>
+                            {% csrf_token %}
                             </form>
-                            <button type="button" class="btn btn-primary">Sign In</button>
+                            <button type="submit" class="btn btn-primary">Sign In</button>
                           </div>
                           <div id="sign_up" class="tab-pane fade">
                             <form method="POST" action="{% url 'register' %}" role="form">
