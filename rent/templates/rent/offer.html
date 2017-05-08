@@ -5,7 +5,7 @@
 {% block bodycontent %} 
 <div class="main-container container">
     <div class="h1">Add New Item</div>
-    <form id="form_add_new">
+    <form id="form_add_new" enctype="multipart/form-data" method="POST" action="{% url 'offer_item' %}">
         <!--<div class="row">-->
         <!--    <div class="body-dark col-md-3">Item Name</div>-->
 
@@ -13,7 +13,7 @@
         <div class="row form-row">
             <div class="col-md-3 form-title">Item Name</div>
             <div class="col-md-9">
-                <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="  E.g. Tripod"/>
+                <input type="text" name="name" id="item_name" placeholder="  E.g. Tripod"/>
             </div>
         </div>
         <hr>
@@ -28,7 +28,7 @@
                     <img src="../../static/rent/image/uploadicon.png" alt="">
                 </div>
                 <div id="item-image-interaction">
-                    <input type="file" name="pic" accept="image/*">
+                    <input type="file" name="picture" accept="image/*">
                     <div class="body-dark">JPG or PNG</div>
 
                 </div>
@@ -41,7 +41,7 @@
         <div class="row form-row" id="">
             <div class="col-md-3 form-title">Description</div>
             <div class="col-md-9">
-                <textarea id="form-description" rows="4" name="form-description" placeholder="  Describe your requesting item"></textarea>
+                <textarea id="form-description" name="description" rows="4" placeholder="  Describe your item being offered"></textarea>
             </div>
         </div>
 
@@ -59,7 +59,7 @@
                     <div class="row form-rewards-row">
                         <div class="col-md-1"></div>
                         <div class="col-md-10">
-                            <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="  E.g. Tripod"/>
+                            <input type="text" name="reward" placeholder="  E.g. a hug"/>
                         </div>
                         <div class="col-md-1"></div>
                     </div>
@@ -70,7 +70,7 @@
                             OR
                         </div>
                         <div class="col-md-10">
-                            <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="  E.g. Tripod"/>
+                            <input type="text" name="reward" placeholder="  E.g. $10"/>
                         </div>
                         <div class="col-md-1 form-addreward-support-text" id="form-addreward-support-text-delete">
                             <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -93,9 +93,9 @@
         </div>
         <hr>
 
-        <button class="btn btn-primary btn-primay-blue center" id="btn-additem">Add Item</button>
+        <button type="submit" class="btn btn-primary btn-primay-blue center" id="btn-additem">Add Item</button>
 
-
+        {% csrf_token %}
     </form>
 
 

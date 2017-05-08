@@ -159,8 +159,30 @@ def get_item_photo(request, id):
 	return HttpResponse(item.picture, content_type=item.content_type)
 
 def offer_item(request):
-	context=[]
-	return render(request, 'rent/offer.html', context)
+	user = get_object_or_404(Profile, user=request.user)
+	if request.method == 'GET':
+		print(request.user)
+		
+		form = OfferNewItem(instance=user)
+		print(user)
+		return render(request, 'rent/offer.html')
+
+	form = OfferNewItem(request.POST, request.FILES, instance=user)
+	if not form.is_valid():
+		context['form'] = form
+		print(form.error)
+		return render(request, 'scottyhunt/new_game.html', context)
+	
+	
+	new_item = OfferingItem(name=form.cleaned_data['name'],
+							lender=request.user,
+							picture=form.cleaned_data['picture'],
+							description=form.cleaned_data['description'],
+							reward=form.cleaned_data['reward']) 
+	new_item.save()
+	print("saved")
+	return redirect(reverse('home'))
+
 
 
 @transaction.atomic
@@ -190,6 +212,8 @@ def register(request):
                                         first_name=form.cleaned_data['first_name'],
                                         last_name=form.cleaned_data['last_name'])
     new_user.save()
+    new_profile = Profile(user=new_user)
+    new_profile.save()
 
     # Logs in the new user and redirects to his/her todo list
     new_user = authenticate(username=form.cleaned_data['username'],

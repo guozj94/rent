@@ -34,3 +34,8 @@ class RegistrationForm(forms.Form):
 		if User.objects.filter(username__exact=username):
 			raise forms.ValidationError("Username is already taken.")
 		return username
+
+class OfferNewItem(forms.ModelForm):
+	class Meta:
+		model = OfferingItem
+		fields = ['name','picture','description','reward']
