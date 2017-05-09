@@ -5,13 +5,21 @@ from rent.models import *
 
 MAX_UPLOAD_SIZE = 2500000
 
+class LoginForm(forms.Form):
+	username = forms.CharField(max_length=20)
+	password = forms.CharField(max_length = 200, 
+                                 label='Password', 
+                                 widget = forms.PasswordInput())
+	def clean(self):
+		cleaned_data = super(LoginForm, self).clean()
+		return cleaned_data
+
 class RegistrationForm(forms.Form):
 	username   = forms.CharField(max_length = 20)
 	first_name = forms.CharField(max_length=20)
 	last_name  = forms.CharField(max_length=20)
 	#email      = forms.CharField(max_length=50,
                                  #widget = forms.EmailInput(), required=False)
-	age = forms.CharField(max_length=3, required=False)
 	password1  = forms.CharField(max_length = 200, 
                                  label='Password', 
                                  widget = forms.PasswordInput())
