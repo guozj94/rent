@@ -30,7 +30,7 @@ class Profile(models.Model):
 	rate = models.DecimalField(max_digits=3, decimal_places=2, blank=True, null=True)
 
 	def __unicode__(self):
-		return 'name=' + str(self.name)
+		return 'name=' + str(self.user.username)
 
 class OfferingItem(models.Model):
 	name = models.CharField(max_length=100)
