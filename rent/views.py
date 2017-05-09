@@ -183,11 +183,7 @@ def offer_item(request):
 							description=form.cleaned_data['description'],
 							reward=form.cleaned_data['reward']) 
 	new_item.save()
-<<<<<<< HEAD
-	print("time offered saved")
-=======
-	print("saved")
->>>>>>> 5ac30f2974d9df0afb55a654c2dcfca137b02ac5
+
 	return redirect(reverse('myalloffer'))
 
 
