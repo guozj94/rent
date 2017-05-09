@@ -163,18 +163,12 @@ def get_item_photo(request, id):
 
 def offer_item(request):
 	user = get_object_or_404(Profile, user=request.user)
-	if request.method == 'GET':
-		print(request.user)
-		
-		form = OfferNewItem(instance=user)
-		print(user)
-		return render(request, 'rent/offer.html')
-
+	context={}
 	form = OfferNewItem(request.POST, request.FILES, instance=user)
 	if not form.is_valid():
 		context['form'] = form
-		print(form.error)
-		return render(request, 'scottyhunt/new_game.html', context)
+		print("form not valid")
+		return render(request, 'rent/add_new.html', context)
 	
 	
 	new_item = OfferingItem(name=form.cleaned_data['name'],
