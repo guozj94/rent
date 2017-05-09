@@ -1,170 +1,240 @@
 {%extends "rent/base.html" %}
+{% block title %}Home{% endblock %}
 
-{% block bodycontent %}
+{% block customized_static %}
+  {% load static %}
         
-        <section class="main-container">
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/search.css">
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/style.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+
+{% endblock %}
+{% block bodycontent %}
+        <section class="search-container">
             <div class="">
-                <form method="GET" action="{% url 'search' %}">
                 <div class="row" id="search">
                     <div class="col-xs-9 col-xs-9 col-sm-9 col-md-9" id="searchbar-container">
-                        <input type="text" id="searchbar" name="searchbar" placeholder="  Search item"/>
+                        <input type="text" id="searchbar" name="" placeholder="  Search item"/>
                     </div>
                     <div class="col-xs-3 col-sm-3 col-md-3 clickable" id="search-btn-container">
-                        <button type="submit" class="clickable btn btn-primary" id="search-btn">
+                        <div class="clickable btn btn-primary" id="search-btn">
                             Search
-                        </button>
+                        </div>
                     </div>
                 </div>
-                </form>
             </div>
             
             
         </section>
-        
-        <section class="main-container">
-            <div class="h2">
+       <div class="main-container">
+            <div class="h2 home-subtitle col-md-12" id="first-sbutitle">
                 Popular Items You May Be Interested In 
             </div>
-			<div class="container">
-				<div class="row">
-
-				    <div class="col-md-3">
-				        <ul class="categories">
-				            <li>Outdoor</li>
-				            
-				        </ul>
-			            <div class="thumbnails">
-    				        <a href="">  
-    				      	    <img src="./image/houseproxy/BG.png" alt="...">
-    			            </a>
-    			            <div class="">
-    				            <div class="h3">Bike</div>
-    				            <div class="caption2">Money</div>
-    			            </div>
-				        </div>
-			        </div>
-				  
-
-			        <div class="col-md-3">
-			            <ul class="categories">
-				            <li>Outdoor</li>
-				            
-				        </ul>
-			            <div class="thumbnails">
-    				        <a href="">  
-    				      	    <img src="./image/houseproxy/BG.png" alt="...">
-    			            </a>
-    			            <div class="">
-    				            <div class="h3">Bike</div>
-    				            <div class="caption2">Money</div>
-    			            </div>
-				        </div>
-			        </div>
-			        
-			        <div class="col-md-3">
-			            <ul class="categories">
-				            <li>Outdoor</li>
-				            
-				        </ul>
-			            <div class="thumbnails">
-    				        <a href="">  
-    				      	    <img src="./image/houseproxy/BG.png" alt="...">
-    			            </a>
-    			            <div class="">
-    				            <div class="h3">Bike</div>
-    				            <div class="caption2">Money</div>
-    			            </div>
-				        </div>
-			        </div>
-				  
-
-			        <div class="col-md-3">
-			            <ul class="categories">
-				            <li>Outdoor</li>
-				            
-				        </ul>
-			            <div class="thumbnails">
-    				        <a href="">  
-    				      	    <img src="./image/houseproxy/BG.png" alt="...">
-    			            </a>
-    			            <div class="">
-    				            <div class="h3">Bike</div>
-    				            <div class="caption2">Money</div>
-    			            </div>
-				        </div>
-			        </div>
-
-			    
-
-				</div>
-			</div>
-		</section>
+            
+            <div id="popular-item-group">
+            
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="popular-item-img">
+                        <img src="../../static/rent/image/motor.png"></img>
+                    </div>
+                    <div class="popular-item-category">
+                        OUTDOOR
+                    </div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Motorcyle</div>
+                        <div class="caption popular-item-margin">Giftcard or Open to what requesters offer or Buy me a coffee</div>
+                        <div class="popular-item-renter popular-item-margin">
+                            <div class="popular-item-renter-avatar"></div>
+                            <div class="popular-item-renter-text">
+                                <div>Tom</div>
+                                <div class="popular-item-renter-text-star">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="popular-item-img">
+                        <img src="../../static/rent/image/bike.png"></img>
+                    </div>
+                    <div class="popular-item-category">
+                        OUTDOOR
+                    </div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Race Bike</div>
+                        <div class="caption popular-item-margin">Giftcard or Open to what requesters offer or Buy me a coffee</div>
+                        <div class="popular-item-renter popular-item-margin">
+                            <div class="popular-item-renter-avatar"></div>
+                            <div class="popular-item-renter-text">
+                                <div>Tom</div>
+                                <div class="popular-item-renter-text-star">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="popular-item-img">
+                        <img src="../../static/rent/image/book.png"></img>
+                    </div>
+                    <div class="popular-item-category">
+                        BOOK
+                    </div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Aventuras</div>
+                        <div class="caption popular-item-margin">Giftcard or Open to what requesters offer or Buy me a coffee</div>
+                        <div class="popular-item-renter popular-item-margin">
+                            <div class="popular-item-renter-avatar"></div>
+                            <div class="popular-item-renter-text">
+                                <div>Tom</div>
+                                <div class="popular-item-renter-text-star">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="popular-item-img">
+                        <img src="../../static/rent/image/table.png"></img>
+                    </div>
+                    <div class="popular-item-category">
+                        PARTY
+                    </div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Party Table</div>
+                        <div class="caption popular-item-margin">Giftcard or Open to what requesters offer or Buy me a coffee</div>
+                        <div class="popular-item-renter popular-item-margin">
+                            <div class="popular-item-renter-avatar"></div>
+                            <div class="popular-item-renter-text">
+                                <div>Tom</div>
+                                <div class="popular-item-renter-text-star">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+ 
+        
+		</div>
+		
 		
 		<section class="main-container">
-            <div class="h2">
+            <div class="h2 home-subtitle col-md-12">
                 Items You Might Be Able to Lend 
             </div>
-			<div class="container">
-				<div class="row">
-
-				    <div class="col-md-3">
+            
+            <div id="popular-item-group">
+            
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="lend-item-img" id="lend-bike">
+                        <!--<img src="../../static/rent/image/bike-whitebg.png"></img>-->
+                    </div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Motorcyle</div>
+                        <div class="caption popular-item-margin">3 people are requesting</div>
+                    </div>
+                </div>
+                
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="lend-item-img" id="lend-oculus"></div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Motorcyle</div>
+                        <div class="caption popular-item-margin">3 people are requesting</div>
+                    </div>
+                </div>
+                
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="lend-item-img" id="lend-boat"></div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Motorcyle</div>
+                        <div class="caption popular-item-margin">3 people are requesting</div>
+                    </div>
+                </div>
+                
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="lend-item-img" id="lend-csapp"></div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Motorcyle</div>
+                        <div class="caption popular-item-margin">3 people are requesting</div>
+                    </div>
+                </div>
+                
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="lend-item-img" id="lend-bike"></div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Motorcyle</div>
+                        <div class="caption popular-item-margin">3 people are requesting</div>
+                    </div>
+                </div>
+                
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="lend-item-img" id="lend-oculus"></div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Motorcyle</div>
+                        <div class="caption popular-item-margin">3 people are requesting</div>
+                    </div>
+                </div>
+                
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="lend-item-img" id="lend-boat"></div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Motorcyle</div>
+                        <div class="caption popular-item-margin">3 people are requesting</div>
+                    </div>
+                </div>
+                
+                <div class="popular-item col-sm-6 col-md-3">
+                    <div class="lend-item-img" id="lend-csapp"></div>
+                    
+                    <div class="popular-item-detail">
+                        <div class="popular-item-title">Motorcyle</div>
+                        <div class="caption popular-item-margin">3 people are requesting</div>
+                    </div>
+                </div>
+            </div>
+			
 		
-			            <div class="thumbnails">
-    				        <a href="">  
-    				      	    <img src="./image/houseproxy/BG.png" alt="...">
-    			            </a>
-    			            <div class="">
-    				            <div class="h3">Bike</div>
-    				            <div class="caption2">Money</div>
-    			            </div>
-				        </div>
-			        </div>
-				  
-
-			        <div class="col-md-3">
-			           
-			            <div class="thumbnails">
-    				        <a href="">  
-    				      	    <img src="./image/houseproxy/BG.png" alt="...">
-    			            </a>
-    			            <div class="">
-    				            <div class="h3">Bike</div>
-    				            <div class="caption2">Money</div>
-    			            </div>
-				        </div>
-			        </div>
-			        
-			        <div class="col-md-3">
-			           
-			            <div class="thumbnails">
-    				        <a href="">  
-    				      	    <img src="./image/houseproxy/BG.png" alt="...">
-    			            </a>
-    			            <div class="">
-    				            <div class="h3">Bike</div>
-    				            <div class="caption2">Money</div>
-    			            </div>
-				        </div>
-			        </div>
-				  
-
-			        <div class="col-md-3">
-			          
-			            <div class="thumbnails">
-    				        <a href="">  
-    				      	    <img src="./image/houseproxy/BG.png" alt="...">
-    			            </a>
-    			            <div class="">
-    				            <div class="h3">Bike</div>
-    				            <div class="caption2">Money</div>
-    			            </div>
-				        </div>
-			        </div>
-
-			    
-
-				</div>
-			</div>
 		</section>
-		
+        <script type="text/javascript" src="../../static/rent/js/script.js"></script>	
+
 {% endblock %}

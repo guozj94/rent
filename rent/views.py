@@ -39,7 +39,7 @@ def search(request):
 	all_items = OfferingItem.objects.filter(name__contains=keyword)
 	#print all_items
 	context['items'] = all_items
-	help_peer = RequestingItem.objects.all()[:4]
+	help_peer = RequestingItem.objects.all().exclude(borrower=request.user)[:4]
 	#print(help_peer)
 	context['help_peer'] = help_peer
 	return render(request, 'rent/search.html', context)
@@ -156,6 +156,7 @@ def myalloffer(request):
 	my_items = OfferingItem.objects.filter(lender=request.user) 
 	#request.user is_active
 	context['my_items'] = my_items
+
 	return render(request, 'rent/myoffers-myitems.html', context)
 
 @login_required
@@ -190,6 +191,7 @@ def offer_item(request):
 							picture=form.cleaned_data['picture'],
 							description=form.cleaned_data['description'],
 							reward=form.cleaned_data['reward']) 
+	new_item.content_type = form.cleaned_data['picture'].content_type
 	new_item.save()
 
 	return redirect(reverse('myalloffer'))
@@ -197,7 +199,7 @@ def offer_item(request):
 # modal for user account activities: login/register
 def login_modal(request):
 	context = {}
-	print request.user
+	print (request.user)
 	form = LoginForm()
 	context['form'] = form
 	form_reg = RegistrationForm()
@@ -211,7 +213,7 @@ def login_authenticate(request):
 	form = LoginForm(request.POST)
 	if not form.is_valid():
 		return redirect(reverse('login'))
-	print form.cleaned_data
+	#print form.cleaned_data
 	user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
 	login(request, user)
 	return redirect(reverse('home'))
@@ -271,8 +273,25 @@ def register(request):
 def my_requests(request):
 	context = {}
 	requested_items = RequestingItem.objects.filter(borrower=request.user)
+	context['items'] = []
+	request_count = requested_items.count()
+	context['count'] = request_count
+	for i in range(0,requested_items.count()):
+		item_dict = {}
+		item_dict['name'] = requested_items[i].name
+		item_dict['reward'] = requested_items[i].reward
+		responses = RequestResponse.objects.filter(item=requested_items[i])
+		print(responses.count())
+		if responses.count() == 0:
+			item_dict['no_response'] = True
+		item_dict['responses'] = responses
+		item_dict['description'] = requested_items[i].description
+		context['items'].append(item_dict)
 
-	context['requests'] = requested_items
-	help_peer = RequestingItem.objects.all()[:4]
+		#print(item_dict)
+
+	#print(context)
+	#print(context['items'][1]['responses'][0].item.name)
+	help_peer = RequestingItem.objects.all().exclude(borrower=request.user, )[:4]
 	context['help_peer'] = help_peer
 	return render(request, 'rent/my_requests.html', context)
