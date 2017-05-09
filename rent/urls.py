@@ -16,9 +16,11 @@ urlpatterns = [
 	url(r'^add_new$', rent_views.add_new, name='add_new'),
 	url(r'^submit_offer$', rent_views.submit_offer, name='submit_offer'),
 	url(r'^offer_item$', rent_views.offer_item, name='offer_item'),
-	url(r'^login$', auth_views.login, {'template_name':'rent/login_temp.html'}, name='login'),
- #    url(r'^logout$', auth_views.logout_then_login, name="logout"),
-    #url(r'^register$', rent_views.register, name="register"),
+	# url(r'^login$', auth_views.login, {'template_name':'rent/login_temp.html'}, name='login'),
+ 	# url(r'^logout$', auth_views.logout_then_login, name="logout"),
+    # url(r'^register$', rent_views.register, name="register"),
+    url(r'^login$', rent_views.login_modal, name='login'),
+    url(r'^login_authenticate$', rent_views.login_authenticate, name='login_authenticate'),
     url(r'^register$', rent_views.register, name="register"),
-    url(r'^my_requests$', rent_views.my_requests, name="my_requests")
+    url(r'^my_requests$', rent_views.my_requests, name="my_requests"),
 ]

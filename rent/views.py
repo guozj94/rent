@@ -32,6 +32,7 @@ def home(request):
 	print(request.user)
 	return render(request, 'rent/home.html', {})
 
+@login_required
 def search(request):
 	context = {}
 	keyword = request.GET.get('searchbar', False)
@@ -43,6 +44,7 @@ def search(request):
 	context['help_peer'] = help_peer
 	return render(request, 'rent/search.html', context)
 
+@login_required
 def help_peer_detail(request, id):
 	#print request.GET, id
 	if not id:
@@ -55,6 +57,8 @@ def help_peer_detail(request, id):
 	context['my_items'] = my_items
 	return render(request, 'rent/helpout.html', context)
 
+@login_required
+@transaction.atomic
 def submit_offer(request):
 	if request.method != 'POST':
 		return redirect('search')
@@ -73,7 +77,7 @@ def submit_offer(request):
 	jsonobj = json.dumps(data, cls=DjangoJSONEncoder)
 	return HttpResponse(jsonobj, content_type='application/json')
 
-
+@login_required
 def add_new(request):
 	if request.method != 'GET':
 		return redirect('search')
@@ -83,6 +87,7 @@ def add_new(request):
 		return redirect('search')
 	return render(request, 'rent/add_new.html', context)
 
+@login_required
 def search_ajax(request):
 	keyword = request.GET.get('keyword', False)
 	all_items = OfferingItem.objects.filter(name__contains=keyword)
@@ -90,13 +95,15 @@ def search_ajax(request):
 	#print jsonobj
 	return HttpResponse(jsonobj, content_type='application/json')
 
+@login_required
 def get_datetime(date_str):
 	ret = parse_datetime(date_str)
 	if not is_aware(ret):
 		ret = make_aware(ret)
 	return ret
 
-
+@login_required
+@transaction.atomic
 def send_request_ajax(request):
 	request_item = RequestingItem()
 	if not request.POST:
@@ -125,6 +132,7 @@ def send_request_ajax(request):
 	jsonobj = json.dumps(data, cls=DjangoJSONEncoder)
 	return HttpResponse(jsonobj, content_type='application/json')
 
+@login_required
 def incomingoffer(request):
 	context = {}
 	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_avtive
@@ -133,6 +141,7 @@ def incomingoffer(request):
 	#print my_items, incoming_offer
 	return render(request, 'rent/myoffers-incoming.html', context)
 
+@login_required
 def confirmedoffer(request):
 	context = {}
 	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_active
@@ -141,6 +150,7 @@ def confirmedoffer(request):
 	#print confirmed_offer
 	return render(request, 'rent/myoffers-confirmed.html', context)
 
+@login_required
 def myalloffer(request):
 	context = {}
 	my_items = OfferingItem.objects.filter(lender=request.user) 
@@ -148,6 +158,7 @@ def myalloffer(request):
 	context['my_items'] = my_items
 	return render(request, 'rent/myoffers-myitems.html', context)
 
+@login_required
 def get_user_photo(request, id):
 	user = get_object_or_404(User, id=id)
 	#print user.profile.photo
@@ -155,12 +166,15 @@ def get_user_photo(request, id):
 		raise Http404
 	return HttpResponse(user.profile.photo, content_type=user.profile.content_type)
 
+@login_required
 def get_item_photo(request, id):
 	item = get_object_or_404(OfferingItem, id=id)
 	if not item.picture:
 		raise Http404
 	return HttpResponse(item.picture, content_type=item.content_type)
 
+@login_required
+@transaction.atomic
 def offer_item(request):
 	user = get_object_or_404(Profile, user=request.user)
 	if request.method == 'GET':
@@ -186,7 +200,45 @@ def offer_item(request):
 
 	return redirect(reverse('myalloffer'))
 
+# modal for user account activities: login/register
+def login_modal(request):
+	context = {}
+	print request.user
+	form = LoginForm()
+	context['form'] = form
+	form_reg = RegistrationForm()
+	context['form_reg'] = form_reg
+	return render(request, 'rent/login.html', context)
 
+def login_authenticate(request):
+	if request.method != 'POST':
+		return redirect(reverse('login'))
+	user = User()
+	form = LoginForm(request.POST)
+	if not form.is_valid():
+		return redirect(reverse('login'))
+	print form.cleaned_data
+	user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+	login(request, user)
+	return redirect(reverse('home'))
+
+def register_action(request):
+	if request.method != 'POST':
+		return redirect(reverse('login'))
+	form = RegistrationForm(request.POST)
+	context['form_reg'] = form
+	if not form.is_valid():
+		return render(request, 'rent/login.html', context)
+	new_user = User.objects.create_user(username=form.cleaned_data['username'], 
+                                        password=form.cleaned_data['password1'],
+                                        #email=form.cleaned_data['email'],
+                                        first_name=form.cleaned_data['first_name'],
+                                        last_name=form.cleaned_data['last_name'])
+	new_user.save()
+	new_user = authenticate(username=form.cleaned_data['username'],
+                            password=form.cleaned_data['password1'])
+	login(request, new_user)
+	return redirect(reverse('home'))
 
 @transaction.atomic
 def register(request):
@@ -221,6 +273,7 @@ def register(request):
     login(request, new_user)
     return redirect(reverse('home'))
 
+@login_required
 def my_requests(request):
 	context = {}
 	requested_items = RequestingItem.objects.filter(borrower=request.user)
