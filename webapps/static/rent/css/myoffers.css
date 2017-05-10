@@ -1,0 +1,95 @@
+@import 'elements.css';
+
+#incoming-line {
+    margin: 10px 0px 10px 0px;
+}
+
+.incoming-gray-border {
+    padding-bottom: 10px;
+}
+
+#incoming-confirm {
+    margin-right: 15px;
+}
+
+.incoming-time {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.myoffer-incoming {
+  margin-top: 25px;  
+}
+
+.myoffer-incoming .myoffer-title .myoffer-title-description{
+  display:block;
+}
+
+.myoffer-incoming .myoffer-title .myoffer-description{
+  display:block;
+}
+
+.myoffer-incoming .myoffer-title .myoffer-time{
+  display:inline-block;
+  margin-left: 10px;
+  
+}
+
+.myoffer-incoming .margin-out-section {
+  margin-top: 20px;
+}
+
+.myoffer-incoming .margin-in-section {
+  margin-top: 6px;
+}
+
+.incoming-reward {
+    margin-top: auto;
+}
+
+#notes {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+@media (max-width: 480px) { 
+    
+    .myoffer-incoming .myoffer-title .myoffer-title-description {
+        margin: auto;
+        margin-top: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .myoffer-incoming .myoffer-description{
+        margin: auto;
+        text-align: center;
+    }
+    .myoffer-incoming {
+        text-align: center;
+    }
+    
+    .request-avatar {
+        margin-top: 30px;
+    }
+    .incoming-time {
+        float: left;
+    }
+    .incoming-reward {
+        margin-top: 20px;
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {   
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
+    
+}
+

@@ -1,0 +1,51 @@
+@import 'elements.css';
+
+.element {
+  width: remainder;
+}
+
+.glyphicon-star-empty{
+	margin-right: 8%;
+}
+
+.glyphicon-star{
+	margin-right: 8%;
+}
+
+.h3{
+	text-align: center;
+}
+
+.rating{
+	margin-top: 100px;
+}
+
+#bigh2{
+	width: 100%;
+  margin: 0%; 
+}
+
+#bigh3{
+	margin-bottom:2%;
+}
+
+#bigh4{
+	width: 100%;
+	margin: 0%; 
+}
+
+@media (max-width: 480px) { 
+    
+}
+
+@media only screen and (max-width: 768px) {   
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
