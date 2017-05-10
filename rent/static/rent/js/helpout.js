@@ -28,6 +28,7 @@ function submitOffer() {
 }
 
 function confirm() {
+    var offerlink = "location.href='/rent/myalloffer'"
 	$("#ICanHelp-Modal").append('<div class="vertical-alignment-helper">'+
                                 	'<div class="modal-dialog vertical-align-center">'+
                                 
@@ -44,13 +45,16 @@ function confirm() {
                                         '</div>'+
                                         '<div class="modal-footer row margin-between-element">'+
                                             '<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>'+
-                                            '<button type="button" class="btn btn-primary btn-primary-blue col-lg-3 col-md-3 col-sm-3 col-xs-3">Go to My Offers</button>'+
-                                            '<button type="button" class="btn btn-primary btn-primary-blue col-lg-3 col-md-3 col-sm-3 col-xs-3" data-dismiss="modal">Contact Requester</button>'+
+                                            
+                                            '<button type="button" class="btn btn-primary btn-primary-blue col-lg-3 col-md-3 col-sm-3 col-xs-3" onclick="' + offerlink +'">' + 'Go to My Offers' +  '</button>'+
+                                            '<button type="button" class="btn btn-primary btn-primary-blue col-lg-3 col-md-3 col-sm-3 col-xs-3" data-dismiss="modal">Contact Requester</button>'+ 
+                                            
                                              '<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
                             '</div>');
+    console.log("hi");
 }
 
 function errorThrow() {

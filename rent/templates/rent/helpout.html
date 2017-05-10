@@ -25,8 +25,12 @@
                         <div class="main-container">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
-                                <img class="col-lg-6 col-md-6 col-sm-6 col-xs-6" src="../../static/rent/image/bike.jpg">
+                                {% if request_item.picture %}
+                                <img class="col-lg-6 col-md-6 col-sm-6 col-xs-6" src="{% url 'get_item_photo' request_item.id %}">
+                                {% else %}
+                                <img src="http://placehold.it/200x200">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+                                {% endif %}
                             </div>
                             <div class="h2 center margin-between-element">{{request_item.name}}</div>
                             <div class="margin-between-element">{{request_item.description}} </div>
@@ -48,10 +52,14 @@
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">Requester</div></div>
                             <div class="row margin-between-element">
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                {% if request_item.borrow.picture %}
                                 <img class="col-lg-8 col-md-8 col-sm-8 col-xs-8" src="{% url 'userpicture' request_item.borrower.id %}">
+                                {% else %}
+                                <img src="http://placehold.it/82x82">
+                                {% endif %}
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
                             </div>
-                            <div class="body center margin-between-element">{{request_item.borrower.first_name}}</div>
+                            <div class="body center margin-between-element"><a href="{% url 'profile' request_item.borrower.id %}">{{request_item.borrower.first_name}}</a></div>
                             <div class="row">
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
                                 <div class="rating center col-lg-8 col-md-8 col-sm-8 col-xs-8">

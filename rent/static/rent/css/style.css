@@ -122,19 +122,27 @@
 }
 
 .home-subtitle {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 /*----*/
 .popular-item {
-  position: relative
+  position: relative;
+  margin-top: 15px;
 }
 
 .popular-item-category {
   position: relative;
   text-align: right;
-  padding-right: 10px;
-  top: -25px;
+  top: -30px;
+  background: #a3a6bc;
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: white;
 }
 
 .popular-img-container {
@@ -147,6 +155,26 @@
   width: 100%;
   padding-bottom: 75%;
   background-color: green;
+  position: relative;
+  overflow: hidden;
+}
+
+.popular-item-img img{
+  position: absolute;
+  height: 100%;
+}
+
+.lend-item-img {
+  width: 100%;
+  padding-bottom: 75%;
+  background-color: green;
+  border: solid 1px rgba(151, 151, 151, 0.4);
+  position: relative;
+}
+
+.lend-item-img img{
+  position: absolute;
+  height: 50%;
 }
 
 .popular-item-renter-avatar {
@@ -154,6 +182,21 @@
   height: 20px;
   border-radius: 100%;
   background-color: gray;
+  display: inline-block;
+}
+
+.popular-item-renter-text {
+  display: inline-block;
+  font-size: 12px;
+  
+}
+
+.popular-item-renter-text-star {
+  margin-top: -5px;
+}
+
+.popular-item-renter-text i {
+  font-size: 10px;
 }
 
 .popular-item-detail {
@@ -162,5 +205,310 @@
 }
 
 .popular-item-margin {
+  margin-top: 8px;
+}
+
+#popular-item-group {
+  display: inline-block;
+  width: 100%;
+}
+
+#first-sbutitle {
+  margin-top: 100px;
+}
+
+
+#lend-bike{
+  background: url(../image/bike-whitebg.png) 50% 50% no-repeat;
+  background-size: 50%;
+}
+
+#lend-oculus{
+  background: url(../image/oculus.png) 50% 50% no-repeat;
+  background-size: 50%;
+}
+
+#lend-boat{
+  background: url(../image/boat.png) 50% 50% no-repeat;
+  background-size: 50%;
+}
+
+#lend-csapp{
+  background: url(../image/csapp.png) 50% 50% no-repeat;
+  background-size: 50%;
+}
+
+.margin-section {
+  margin-top: 30px;
+}
+
+.a-response-container {
+  text-align: center;  
+  margin-top: 20px;
+}
+
+.a-response {
+  height: 300px;
+  width: 160px !important;
+  /*background: yellow;*/
+  display: inline-block;
+}
+
+.response-img {
+  margin-top: 10px;
+  /*background: blue;*/
+  width: 100%;
+  position: relative;
+  height: 87px;
+}
+
+.response-img img{
+  height: 100%;
+}
+
+.response-border {
+  border-radius: 8px;
+  border: solid 1px #dedede;
+}
+
+.response-title {
+  font-size: 14px;
+  color: #757575;
+  margin-top: 25px;
+  color: black;
+}
+
+.response-exit {
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
   margin-top: 5px;
+  color: gray;
+  
+}
+
+.response-reward-title {
+  margin-top: 10px;  
+}
+
+.popular-item-renter-response-text {
+  text-align: left;
+}
+
+.popular-item-response-renter {
+  margin-top: 10px;
+}
+
+.btn-response-contact {
+  margin-top: 10px;
+}
+
+.response-section {
+  position: relative;
+}
+
+.slide-left {
+  position: absolute;
+      top: 190px;
+}
+
+.slide-right {
+  position: absolute;
+      top: 190px;
+    right: 5px;
+}
+
+.margin-below-title {
+  margin-top: 25px;
+}
+
+
+
+.profile-avatar {
+  text-align: center;
+}
+
+.profile-avatar img{
+    text-align: center;
+    width: 150px;
+    height: 150px;
+}
+
+.star-center {
+  text-align: center;
+}
+
+.my-badge {
+ margin-left: 5px; 
+}
+
+.reviewer-info {
+  text-align: center;
+}
+
+.reviewer-avatar img{
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
+.profile-info-container {
+  margin-bottom: 30px;
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 30px;
+}
+
+.review-title {
+      margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.review-time {
+  margin-top: 8px;
+}
+
+.profile-content-container {
+  width: calc(100% - 190px);
+  display: inline-block;
+}
+
+@media (max-width: 480px) { 
+  .a-response {
+    width: 260px !important;
+
+  }
+}
+
+@media only screen and (max-width: 768px) {   
+  .a-response {
+    width: 260px !important;
+
+  }
+  .profile-content-container {
+    width: 100%;
+    text-align: center;
+  }
+  .profile-info-container {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .a-response {
+    width: 260px !important;
+  }
+  
+}
+
+@media only screen and (min-width: 992px) {
+  .a-response {
+    width: 150px !important;
+
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .a-response {
+    width: 200px !important;
+
+  }
+}
+
+
+#landing_head_background{
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 140vh;
+    position: absolute;
+    top:-50vh;
+    left: 0;
+    z-index:-2;
+    transform: skewY(-4deg);
+    background: #fc6076; /* Old browsers */
+    background: -moz-linear-gradient(left, #fc6076 0%, #ff9a44 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #fc6076 0%,#ff9a44 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #fc6076 0%,#ff9a44 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+#landing_diagram{
+  height:150vh;
+  position: relative;
+  margin-top:20vh;
+  z-index:50;
+  /*why background image does not show up?whywhywhy///*/
+  background: top left no-repeat url("../../static/rent/image/background.svg");
+}
+
+.process_img{
+  height: 100px;
+}
+
+#process_1{
+  position:absolute;
+  top:10vh;
+  left:50vw;
+}
+
+#process_2{
+  position:absolute;
+  top:60vh;
+  left:10vw;
+}
+
+#process_3{
+  position:absolute;
+  top:110vh;
+  left:50vw;
+  height: 150px;
+}
+
+#process_4{
+  position:absolute;
+  top:160vh;
+  left:10vw;
+  height:120px;
+}
+
+.circle{
+  position:absolute;
+  top: 122px;
+  left: 1135px;
+  z-index: 100;
+  height:25px;
+  width:25px;
+  display:block;
+  border-radius: 50%;
+  border: 2px solid #0033C9;
+  animation: circle 3.2s forwards;
+  animation-delay: 200ms;
+}
+
+@keyframes circle{
+
+0% {
+    top: 122px;
+    right: 240px;
+  }
+  
+100% {
+    transform: translate(-900px, 400px);
+  }
+}
+
+#landing_bottom_background{
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 40vh;
+    position: absolute;
+    bottom:0;
+    left: 0;
+    z-index:-2;
+    transform: skewY(-4deg);
+    background: #fc6076; /* Old browsers */
+    background: -moz-linear-gradient(left, #fc6076 0%, #ff9a44 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #fc6076 0%,#ff9a44 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #fc6076 0%,#ff9a44 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }

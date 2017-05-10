@@ -40,6 +40,13 @@ body {
 	margin-top: 0px;
 }
 
+#nav-menu a {
+    padding: 0;
+    font-size: 14px;
+    color: black;
+
+}
+
 .subnav {
 	font-size: 14px;
 	color: #4a4a4a;
@@ -56,9 +63,15 @@ body {
 	color: #8ca2b6;
 }
 
-body {
+.body {
 	font-size: 14px;
 	color: #757575;
+}
+
+.body-dark {
+	font-size: 14px;
+	font-weight: 600;
+	color: #4a4a4a;
 }
 
 .caption-2 {
@@ -75,36 +88,36 @@ body {
 .btn-primary {
     background-color: #0982FF;
     color: white;
-    border: 2px solid #026FC7;
+    border: 1px solid #026FC7;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .btn-secondary {
     background-color: white;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .btn-secondary-blue {
-    border: 2px solid #0064ff;
+    border: 1px solid #0064ff;
     color: #0064ff;
 }
 
 .btn-secondary-red {
-    border: 2px solid #fe4a49;
+    border: 1px solid #fe4a49;
     color: #fe4a49;
 }
 
 .btn-secondary-green {
-    border: 2px solid #23ce6b;
+    border: 1px solid #23ce6b;
     color: #23ce6b;
 }
 
 .btn-secondary-gray {
-    border: 2px solid #dde5ed;
+    border: 1px solid #dde5ed;
     color: #dde5ed;
 }
 
@@ -128,6 +141,10 @@ body {
     color: white;
 }
 
+.btn-fullwidth {
+  width: 100%;
+}
+
 .right {
     float: right;
 }
@@ -141,7 +158,7 @@ nav #nav-menu li{
 }
 
 .navbar {
-    min-height: 60px;  
+    min-height: 55px;  
     background-color: white;
 }
 
@@ -151,7 +168,7 @@ nav #nav-user img{
 }
 
 nav .navbar-brand img {
-    width: 30px;
+    width: 25px;
 }
 
 nav #nav-menu #nav-user {
@@ -178,6 +195,12 @@ nav #nav-menu #nav-user {
     max-width: 1200px;
 }
 
+.search-container {
+    margin: auto;
+    margin-top: 30px;
+    max-width: 1200px;   
+}
+
 .gray-border {
     width: 100%;
 	/*height: 358px;*/
@@ -190,6 +213,14 @@ nav #nav-menu #nav-user {
   border-right: solid 1px #dde5ed;
 }
 
+.nodisplay {
+    display:none;
+}
+
+button {
+    border: none;
+    background-color: none;
+}
 .image-fill {
     width: 100%;
 }
@@ -205,13 +236,6 @@ nav #nav-menu #nav-user {
 .hyperlink {
     color: blue;
     text-decoration: underline;
-}
-.nodisplay {
-    display: none;
-}
-button {
-    border: none;
-    background-color: none;
 }
 
 @media (max-width: 480px) { 
@@ -234,17 +258,26 @@ button {
     .main-container {
         width: 95%;
     }
+    .search-container {
+        width: 95%;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     .main-container {
         width: 95%;
     }
+    .search-container {
+        width: 85%;
+    }
 }
 
 @media only screen and (min-width: 992px) {
     .main-container {
         width: 80%;
+    }
+    .search-container {
+        width: 65%;
     }
     
 }

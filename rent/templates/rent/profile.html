@@ -1,83 +1,174 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>web design final</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{%extends "rent/base.html" %}
+{% block title %}profile{% endblock %}
+
+{% block customized_static %}
+  {% load static %}
+        
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/profile.css">
         <link rel="stylesheet" type="text/css" href="../../static/rent/css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-					<span class="glyphicon glyphicon-menu-hamburger"></span>
-				</button>
-				<a href="index.html" class="navbar-brand">
-					<img alt="Brand" src="./image/BRAND.png">
-				</a>
-            </div>
-            
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right" id="nav-menu">
-                    <li>Offer My Item</li>
-                    <li>Categories</li>
-                    <li>My Offers</li>
-                    <li>My Requests</li>
-                    <li><i class="fa fa-search" aria-hidden="true"></i></li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container">
-   
-          <div class="row">
-            <div class="col-sm-3" id="personal_info">
-                
-                <div class="profile_picture">picture</div>
-                <p>Name</p>
-                <div class="ratings">user's ratings</div>
-                
-                
-            </div>
-            <div class="col-sm-9" id="items_and_reviews">
-                <h3>person's items</h3>
-                <div class="row" id="items">
-                    <div class="col-sm-12">
-                        
-                        <div class ="row">
-                            <div class="col-sm-3 item">Item one</div>
-                            <div class="col-sm-3 item">Item one</div>
-                            <div class="col-sm-3 item">Item one</div>
-                            <div class="col-sm-3 item">Item one</div>
-                        </div>
-                        <div class ="row">
-                            <div class="col-sm-3 item">Item one</div>
-                            <div class="col-sm-3 item">Item one</div>
-                            <div class="col-sm-3 item">Item one</div>
-                            <div class="col-sm-3 item">Item one</div>
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                <h3>person's reviews</h3>
-                <div class="row" id="reviews">
-                    <div class="col-sm-12">where reviews would go</div>
-                    
-                </div>
-                
-            </div>
 
+{% endblock %}
+{% block bodycontent %}   
+<!-- User image and rating -->
+      <div class="main-container rating">
+        <div class="profile-info-container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 profile-avatar">
+              <img class="img-circle" src="../../static/rent/image/avatar.png">
+            </div>
+          </div>
+          <div class="row justify-content-md-center">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <h2 style="text-align:center;width:100%">{{firstname}}</h2>
+            </div>
+          </div>
+          <div class='row'>
+            <div class="star-center">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"> </i>
+              <i class="fa fa-star" aria-hidden="true"> </i>
+              <i class="fa fa-star" aria-hidden="true"> </i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </div>
           </div>
         </div>
-    
-        
- 
-    
-    </body>
-</html>
+      
+        <div class="profile-content-container">
+          <div class="row">
+            <div class="col-md-6 h1">{{firstname}}'s Items<span class="badge my-badge">{{items.count}}</span></div>
+          </div>
+           <div class="row" id="popular-item-group">
+             {% for i in items %}
+              <div class="popular-item col-sm-6 col-md-3">
+                  {% if i.picture %}
+                  <div class="lend-item-img"  style="background: url(' {% url 'get_item_photo' i.id %}') 50% 50% no-repeat; background-size: 100%;">
+                  {% else %}
+                  <div class="lend-item-img"   style="background: url(../../static/rent/image/bike-whitebg.png) 50% 50% no-repeat; background-size: 50%;">
+                  {% endif %}
+                  </div>
+                  
+                  
+                  <div class="popular-item-detail">
+                      <div class="popular-item-title">{{i.name}}</div>
+                  </div>
+              </div>
+               {% endfor %}
+              
+<!--
+              <div class="popular-item col-sm-6 col-md-3">
+                  <div class="lend-item-img" id="lend-oculus"></div>
+                  
+                  <div class="popular-item-detail">
+                      <div class="popular-item-title">Motorcyle</div>
+                  </div>
+              </div>
+              
+              <div class="popular-item col-sm-6 col-md-3">
+                  <div class="lend-item-img" id="lend-boat"></div>
+                  
+                  <div class="popular-item-detail">
+                      <div class="popular-item-title">Motorcyle</div>
+                  </div>
+              </div>
+              
+              <div class="popular-item col-sm-6 col-md-3">
+                  <div class="lend-item-img" id="lend-csapp"></div>
+                  
+                  <div class="popular-item-detail">
+                      <div class="popular-item-title">Motorcyle</div>
+                  </div>
+              </div>
+              
+              <div class="popular-item col-sm-6 col-md-3">
+                  <div class="lend-item-img" id="lend-bike"></div>
+                  
+                  <div class="popular-item-detail">
+                      <div class="popular-item-title">Motorcyle</div>
+                  </div>
+              </div>
+              
+              <div class="popular-item col-sm-6 col-md-3">
+                  <div class="lend-item-img" id="lend-oculus"></div>
+                  
+                  <div class="popular-item-detail">
+                      <div class="popular-item-title">Motorcyle</div>
+                  </div>
+              </div>
+              
+              <div class="popular-item col-sm-6 col-md-3">
+                  <div class="lend-item-img" id="lend-boat"></div>
+                  
+                  <div class="popular-item-detail">
+                      <div class="popular-item-title">Motorcyle</div>
+                  </div>
+              </div>
+              
+              <div class="popular-item col-sm-6 col-md-3">
+                  <div class="lend-item-img" id="lend-csapp"></div>
+                  
+                  <div class="popular-item-detail">
+                      <div class="popular-item-title">Motorcyle</div>
+                  </div>
+              </div>
+-->
+          </div>
+          
+          <div class="margin-below-title"></div>
+          
+          <div class="row review-title">
+            <div class="col-md-6 h1">{{firstname}}'s Reviews<span class="badge my-badge">2</span></div>
+          </div>
+          
+          <div class="reviews-group">
+          
+            <div class="a-review row">
+              <div class="col-sm-2 col-md-2 col-lg-2 reviewer-info">
+                <div class="reviewer-avatar">
+                  <img src="../../static/rent/image/avatar.png">
+                </div>
+
+                <div class="reviewer-name body-dark">Jack</div>
+              </div>
+              <div class="col-sm-10 col-md-10 col-lg-10">
+                <div class="row">
+                  <div class="body col-md-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitiosum est enim in dividendo partem in genere numerare. Qui ita affectus, beatum esse numquam probabis; Et quidem, inquit, vehementer errat; Perturbationes autem nulla naturae vi commoventur, omniaque ea sunt opiniones ac iudicia levitatis. Illud dico, ea, quae dicat, praeclare inter se cohaerere. Naturales divitias dixit parabiles esse, quod parvo esset natura contenta.</div>
+                  <div class="caption-2 col-md-12 review-time">Apr. 09 2017</div>
+                </div>
+                <hr>
+              </div>
+            </div>
+            
+            <div class="a-review row">
+              <div class="col-sm-2 col-md-2 col-lg-2 reviewer-info">
+                <div class="reviewer-avatar">
+                  <img src="../../static/rent/image/avatar.png">
+                </div>
+
+                <div class="reviewer-name body-dark">Jack</div>
+              </div>
+              <div class="col-sm-10 col-md-10 col-lg-10">
+                <div class="row">
+                  <div class="body col-md-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitiosum est enim in dividendo partem in genere numerare. Qui ita affectus, beatum esse numquam probabis; Et quidem, inquit, vehementer errat; Perturbationes autem nulla naturae vi commoventur, omniaque ea sunt opiniones ac iudicia levitatis. Illud dico, ea, quae dicat, praeclare inter se cohaerere. Naturales divitias dixit parabiles esse, quod parvo esset natura contenta.</div>
+                  <div class="caption-2 col-md-12">Apr. 09 2017</div>
+                </div>
+                <hr>
+                <!--<div class="row">-->
+                <!--  <p>2017-7-17</p>-->
+                <!--</div>-->
+              </div>
+            </div>
+            
+            
+          </div>
+      
+          
+        </div>
+      </div>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+ {% endblock %}

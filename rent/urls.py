@@ -24,4 +24,7 @@ urlpatterns = [
     url(r'^register$', rent_views.register, name="register"),
     url(r'^logout$', rent_views.logout_user, name='logout'),
     url(r'^my_requests$', rent_views.my_requests, name="my_requests"),
+    url(r'^item_photo/(?P<id>\S+)$', rent_views.get_item_photo, name="get_item_photo"),
+    url(r'^profile/(?P<id>\d+)$', rent_views.view_profile, name="profile"),
+    url(r'^request_item/(?P<id>\d+)$', rent_views.request_item, name="request_item")
 ]
