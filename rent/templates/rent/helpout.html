@@ -28,7 +28,7 @@
                                 {% if request_item.picture %}
                                 <img class="col-lg-6 col-md-6 col-sm-6 col-xs-6" src="{% url 'get_item_photo' request_item.id %}">
                                 {% else %}
-                                <img src="http://placehold.it/200x200">
+                                <img class="col-lg-6 col-md-6 col-sm-6 col-xs-6" src="../../static/rent/image/camera.jpg">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
                                 {% endif %}
                             </div>
@@ -55,7 +55,7 @@
                                 {% if request_item.borrow.picture %}
                                 <img class="col-lg-8 col-md-8 col-sm-8 col-xs-8" src="{% url 'userpicture' request_item.borrower.id %}">
                                 {% else %}
-                                <img src="http://placehold.it/82x82">
+                                <img class="col-lg-8 col-md-8 col-sm-8 col-xs-8" src="../../static/rent/image/joy.jpg">
                                 {% endif %}
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
                             </div>

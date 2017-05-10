@@ -23,6 +23,7 @@
                             </div>
                         </div>
                         <div class="margin-below-title"></div>
+                        {% if items %}
                         {% for i in items %}
                         <div class="" id="items-container">
                             <div class="an-request gray-border">
@@ -269,6 +270,9 @@
                         </div>
                         <br>
                         {% endfor %}
+                        {% else %}
+                        You haven't posted any requests yet!
+                        {% endif %}
                        
       
                     </div>
@@ -287,7 +291,7 @@
                         {% if j.picture %}
                         <img src="{% url 'get_item_photo' j.id %}" width="82px" height="82px">
                         {% else %}
-                        <img src="http://placehold.it/82x82">
+                        <img src="../../static/rent/image/camera.jpg">
                         {% endif %}
                         <div class="peer-item-name">
                             {{j.name}}
