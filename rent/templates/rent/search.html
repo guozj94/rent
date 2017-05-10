@@ -4,6 +4,8 @@
         
         <!-- Customized static files -->
         <link rel="stylesheet" href="../../static/rent/css/search.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../static/rent/css/style.css" type="text/css" />
         <script type="text/javascript" src="../../static/rent/js/search.js"></script>
 {% endblock %}
     
@@ -18,7 +20,7 @@
                     <div class="content-container">
                         <div class="row" id="search">
                             <div class="col-xs-9 col-xs-9 col-sm-9 col-md-9" id="searchbar-container">
-                                <input type="text" id="searchbar" name="" placeholder="  Search item"/>
+                                <input type="text" id="searchbar" name="" placeholder="Search item"/>
                             </div>
                             <div class="col-xs-3 col-sm-3 col-md-3 clickable" id="search-btn-container">
                                 <div class="clickable btn btn-primary" id="search-btn">
@@ -68,7 +70,15 @@
                                                 {{item.lender.first_name}}
                                             </div>
                                             <div class="col-md-10 col-sm-9 col-xs-12 lender-rate">
-                                                stars here
+                                                <div class='row'>
+                                                    <div class="star-center" style="float:left">
+                                                      <i class="fa fa-star" aria-hidden="true"></i>
+                                                      <i class="fa fa-star" aria-hidden="true"> </i>
+                                                      <i class="fa fa-star" aria-hidden="true"> </i>
+                                                      <i class="fa fa-star" aria-hidden="true"> </i>
+                                                      <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +110,7 @@
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2 form-title">I am looking for: </div>
                                 <div class="col-md-8">
-                                    <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="  E.g. Tripod"/>
+                                    <input type="text" name="i-am-looking-for" id="i-am-looking-for" placeholder="E.g. Tripod"/>
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>
@@ -108,7 +118,7 @@
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2 form-title">Description: </div>
                                 <div class="col-md-8">
-                                    <textarea id="form-description" rows="4" name="form-description" placeholder="  Describe your requesting item"></textarea>
+                                    <textarea id="form-description" rows="4" name="form-description" placeholder="Describe your requesting item"></textarea>
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>
@@ -158,7 +168,7 @@
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2 form-title">Reward: </div>
                                 <div class="col-md-8">
-                                    <input type="text" name="reward" id="reward" placeholder="  E.g. $4 per day"/>
+                                    <input type="text" name="reward" id="reward" placeholder="E.g. $4 per day"/>
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>
