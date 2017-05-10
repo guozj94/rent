@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.db import transaction
 from django.contrib import messages
 from django.core import serializers
@@ -32,8 +32,9 @@ def home(request):
 	print(request.user)
 	return render(request, 'rent/home.html', {})
 
-@login_required
 def search(request):
+	if not request.user.is_authenticated:
+		return redirect(reverse('home'))
 	context = {}
 	keyword = request.GET.get('searchbar', False)
 	all_items = OfferingItem.objects.filter(name__contains=keyword)
@@ -213,13 +214,19 @@ def login_modal(request):
 def login_authenticate(request):
 	if request.method != 'POST':
 		return redirect(reverse('login'))
+	context = {}
 	user = User()
 	form = LoginForm(request.POST)
 	if not form.is_valid():
-		return redirect(reverse('login'))
-	print form.cleaned_data
+		context['form'] = form
+		return render(request, 'rent/login.html', context)
+	print form.cleaned_data['password']
 	user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
 	login(request, user)
+	return redirect(reverse('home'))
+
+def logout_user(request):
+	logout(request)
 	return redirect(reverse('home'))
 
 def register_action(request):

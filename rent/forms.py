@@ -12,6 +12,11 @@ class LoginForm(forms.Form):
                                  widget = forms.PasswordInput())
 	def clean(self):
 		cleaned_data = super(LoginForm, self).clean()
+		username = cleaned_data['username']
+		if User.objects.filter(username__exact=username):
+			pass
+		else:
+			raise forms.ValidationError('Username does not exist.')
 		return cleaned_data
 
 class RegistrationForm(forms.Form):

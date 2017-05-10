@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^login$', rent_views.login_modal, name='login'),
     url(r'^login_authenticate$', rent_views.login_authenticate, name='login_authenticate'),
     url(r'^register$', rent_views.register, name="register"),
+    url(r'^logout$', rent_views.logout_user, name='logout'),
     url(r'^my_requests$', rent_views.my_requests, name="my_requests"),
 ]
