@@ -7,8 +7,8 @@
         <link rel="stylesheet" type="text/css" href="{% static 'rent/css/style.css' %}">
         <link rel="stylesheet" type="text/css" href="../../static/rent/css/myoffers.css">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-        <script type="text/javascript" src=""></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+        <script type="text/javascript" src="../../static/rent/js/my_request.js"></script>
 {% endblock %}
 
 {% block bodycontent %}
@@ -19,19 +19,19 @@
                     <div class="content-container">
                         <div class="row" id="search">
                             <div class="h1 col-md-12">
-                                My Requests ({{count}})
+                                My Requests(2)
                             </div>
                         </div>
-                        {% for r in items %}
+                        <div class="margin-below-title"></div>
                         <div class="" id="items-container">
                             <div class="an-request gray-border">
                                 <div class="h2">
-                                    You requested: {{r.name}}
+                                    You requested: Tripod
                                 </div>
                                 <div class="body">
-                                    {{r.description}}
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
                                 </div>
-                                <div class="row margin-in-section">
+                                <div class="row margin-in-section margin-section">
                                     <div class="col-xxs col-xs-4 col-sm-3 col-md-2 col-lg-2">
                                         <div class="h3 incoming-sub-title">
                                             Status
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="col-xxs col-xs-8 col-sm-9 col-md-10 col-lg-10">
                                         <div class="body incoming-sub-title">
-                                            Your request got {{r.responses.count}} responses. Contact them to complete the request.
+                                            Your request got 3 responses. Contact them to complete the request.
                                         </div>
                                     </div>
                                 </div>
@@ -53,36 +53,183 @@
                                     </div>
                                     <div class="col-xxs col-xs-8 col-sm-9 col-md-10 col-lg-10">
                                         <div class="body">
-                                            {{r.reward}}
+                                            Reward as the helper requests.
                                         </div>
                                         
                                     </div>
                                 </div>
                                 <hr>
                                 
-                                <div class="row margin-in-section ">
+                                <div class="row margin-in-section response-section">
                                     <div class="col-xxs col-xs-4 col-sm-3 col-md-2 col-lg-2">
                                         <div class="h3 incoming-reward">
-                                            Response {{r.responses.count}}
+                                            Response (4)
                                         </div>
                                     </div>
                                     <div class="col-xxs col-xs-8 col-sm-9 col-md-10 col-lg-10">
                                         <div class="body">
-                                            {% if r.no_response %}
-                                            <p>Your request has been sent. No one responses yet.</p>
-                                            {% else %}
-                                            Contact your helpers 
-                                            {% endif %}
+                                            Your request has been sent. No one responses yet.
                                         </div>
                                         
                                     </div>
+                                    <div class="slide-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                                    <div class="slide-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                                </div>
+                                
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4 a-response-container">
+                                           <div class="response-border a-response ">
+                                               <div class="response-exit">
+                                                   <i class="fa fa-times" aria-hidden="true"></i>
+                                               </div>
+                                               <div class="response-title">50 Inch Tropod</div>
+                                               <div class="response-img">
+                                                   <img src="../../static/rent/image/bike-whitebg.png">
+                                               </div>
+                                               <div class="response-reward-title">
+                                                   Reward
+                                               </div>
+                                               <div class="caption">
+                                                   blah blah blah
+                                               </div>
+                                               
+                                               <div class="popular-item-renter popular-item-margin popular-item-response-renter">
+                                                    <div class="popular-item-renter-avatar"></div>
+                                                    <div class="popular-item-renter-text popular-item-renter-response-text">
+                                                        <div>Tom</div>
+                                                        <div class="popular-item-renter-text-star">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="btn btn-secondary-blue btn-response-contact">
+                                                    Contact
+                                                </div>
+                                           </div>  
+                                        </div>
+                                        
+                                        <div class="col-sm-12 col-md-4 a-response-container">
+                                           <div class="response-border a-response ">
+                                               <div class="response-exit">
+                                                   <i class="fa fa-times" aria-hidden="true"></i>
+                                               </div>
+                                               <div class="response-title">50 Inch Tropod</div>
+                                               <div class="response-img">
+                                                   <img src="../../static/rent/image/bike-whitebg.png">
+                                               </div>
+                                               <div class="response-reward-title">
+                                                   Reward
+                                               </div>
+                                               <div class="caption">
+                                                   blah blah blah
+                                               </div>
+                                               
+                                               <div class="popular-item-renter popular-item-margin popular-item-response-renter">
+                                                    <div class="popular-item-renter-avatar"></div>
+                                                    <div class="popular-item-renter-text popular-item-renter-response-text">
+                                                        <div>Tom</div>
+                                                        <div class="popular-item-renter-text-star">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="btn btn-secondary-blue btn-response-contact">
+                                                    Contact
+                                                </div>
+                                           </div>  
+                                        </div>
+                                        
+                                        <div class="col-sm-12 col-md-4 a-response-container">
+                                           <div class="response-border a-response ">
+                                               <div class="response-exit">
+                                                   <i class="fa fa-times" aria-hidden="true"></i>
+                                               </div>
+                                               <div class="response-title">50 Inch Tropod</div>
+                                               <div class="response-img">
+                                                   <img src="../../static/rent/image/bike-whitebg.png">
+                                               </div>
+                                               <div class="response-reward-title">
+                                                   Reward
+                                               </div>
+                                               <div class="caption">
+                                                   blah blah blah
+                                               </div>
+                                               
+                                               <div class="popular-item-renter popular-item-margin popular-item-response-renter">
+                                                    <div class="popular-item-renter-avatar"></div>
+                                                    <div class="popular-item-renter-text popular-item-renter-response-text">
+                                                        <div>Tom</div>
+                                                        <div class="popular-item-renter-text-star">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="btn btn-secondary-blue btn-response-contact">
+                                                    Contact
+                                                </div>
+                                           </div>  
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-4 a-response-container">
+                                           <div class="response-border a-response ">
+                                               <div class="response-exit">
+                                                   <i class="fa fa-times" aria-hidden="true"></i>
+                                               </div>
+                                               <div class="response-title">50 Inch Tropod</div>
+                                               <div class="response-img">
+                                                   <img src="../../static/rent/image/bike-whitebg.png">
+                                               </div>
+                                               <div class="response-reward-title">
+                                                   Reward
+                                               </div>
+                                               <div class="caption">
+                                                   blah blah blah
+                                               </div>
+                                               
+                                               <div class="popular-item-renter popular-item-margin popular-item-response-renter">
+                                                    <div class="popular-item-renter-avatar"></div>
+                                                    <div class="popular-item-renter-text popular-item-renter-response-text">
+                                                        <div>Tom</div>
+                                                        <div class="popular-item-renter-text-star">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="btn btn-secondary-blue btn-response-contact">
+                                                    Contact
+                                                </div>
+                                           </div>  
+                                        </div>
+                                        
+                                   </div>
                                 </div>
                             
                                 
                                 <hr id="incoming-line">
                                 <div>
                                     <div class="caption-2 incoming-time">
-                                        {{r.post_date}}
+                                        04/05/2017
                                     </div>
                                     <button class="btn btn-secondary btn-secondary-blue right ">
                                         Archive
@@ -92,10 +239,12 @@
                                     </div> 
                                 </div>
                                 
+                                
+                                
+                                
                             </div>
                             
                         </div>
-                        {% endfor %}
                        
       
                     </div>
@@ -106,25 +255,24 @@
                     <div class="" id="help-peer-title">
                         Could you help your peers?
                     </div>
-                    {% for j in help_peer %}
-              
-                    <form method="GET" action="{% url 'help_peer_detail' j.id %}">
                     <div class="peer-item-container">
-                        {% if j.picture %}
-                        <img src="{% url 'get_item_photo' j.id %}" width="82px" height="82px">
-                        
-                        {% else %}
-                        <img src="http://placehold.it/82x82">
-                        {% endif %}
+                        <img src="Photo-Tripod.png" width="82px" height="82px"></img>
                         <div class="peer-item-name">
-                            {{j.name}}
+                            Bike
                         </div>
                         <div class="peer-item-viewdetail">
-                            <button type="submit">View Detail</button>
+                            View Detail
                         </div>
                     </div>
-                    </form>
-                    {% endfor %}
+                    <div class="peer-item-container">
+                        <img src="Photo-Tripod.png" width="82px" height="82px"></img>
+                        <div class="peer-item-name">
+                            Bike
+                        </div>
+                        <div class="peer-item-viewdetail">
+                            View Detail
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
