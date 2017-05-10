@@ -37,9 +37,8 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right" id="nav-menu">
                     <li><a href="{% url 'offer_item' %}">Offer My Item</a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="{% url 'incomingoffer' %}">My Offers</a></li>
-                    <li><a href="{% url 'my_requests' %}">My Requests</a></li>
+                    <li><a href="{% url 'incomingoffer' %}">Renting Activities</a></li>
+                    <li><a href="{% url 'my_requests' %}">Outging Requests</a></li>
                     <li><a href="{% url 'search' %}"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                     <li id="nav-user"><a href="{% url 'profile' user.id %}">
                         <img src="../../static/rent/image/avatar.png" alt=""></a>
