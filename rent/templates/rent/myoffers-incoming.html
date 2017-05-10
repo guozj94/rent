@@ -104,7 +104,7 @@
                             <button class="btn btn-secondary btn-secondary-red right ">
                                 Decline
                             </button>
-                            <button class="btn btn-secondary btn-secondary-green right" id="incoming-confirm"><a href="{% url 'make_transaction' item_id=i.id borrower_id=i.borrower.id %}">
+                            <button class="btn btn-secondary btn-secondary-green right" id="incoming-confirm"><a href="{% url 'make_transaction' item_id=i.item.id borrower_id=i.borrower.id %}">
                                 Confirm</a>
                             </button>
                             

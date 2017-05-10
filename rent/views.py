@@ -28,9 +28,12 @@ from rent.forms import *
 
 # Create your views here.
 
+def landing(request):
+	return render(request, 'rent/index.html',{})
+
 def home(request):
 	print(request.user)
-	return render(request, 'rent/home.html', {})
+	return render(request, 'rent/home.html',{})
 
 def search(request):
 	if not request.user.is_authenticated:
@@ -287,17 +290,16 @@ def my_requests(request):
 		item_dict = {}
 		item_dict['name'] = requested_items[i].name
 		item_dict['reward'] = requested_items[i].reward
+		item_dict['post_date'] = requested_items[i].post_date
 		responses = RequestResponse.objects.filter(item=requested_items[i])
-		print(responses.count())
+		#print(responses.count())
 		if responses.count() == 0:
 			item_dict['no_response'] = True
 		item_dict['responses'] = responses
 		item_dict['description'] = requested_items[i].description
 		context['items'].append(item_dict)
 
-		#print(item_dict)
 
-	#print(context)
 	#print(context['items'][1]['responses'][0].item.name)
 	help_peer = RequestingItem.objects.all().exclude(borrower=request.user, )[:4]
 	context['help_peer'] = help_peer
@@ -327,6 +329,7 @@ def request_item(request, id):
 	return redirect("search")
 
 def make_transaction(request, item_id, borrower_id):
+	print("here")
 	context={}
 	item = OfferingItem.objects.get(id=item_id)
 	incoming_offer = OfferResponse.objects.get(item=item)

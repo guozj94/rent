@@ -1,10 +1,13 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title>web design final</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../../static/rent/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/elements.css">
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/myoffers.css">
+        <link rel="stylesheet" type="text/css" href="../../static/rent/css/animate.css">
+        <link rel="stylesheet" href="../../static/rent/css/search.css" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
@@ -13,62 +16,148 @@
         <link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-					<span class="glyphicon glyphicon-menu-hamburger"></span>
-				</button>
-				<a href="index.html" class="navbar-brand">
-					<img alt="Brand" src="../../static/rent/image/brand.png">
-				</a>
+        <header id="landing">
+            <span id="landing_head_background"></span>
+            <!--<div class="main-container">-->
+            <!--<div id="head_background">-->
+                <img id="head_background" src="../../static/rent/image/landing_background.svg">
+            <!--</div>-->
+            <nav class="navbar navbar-default" style="border:none; background:none;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+					    <span class="glyphicon glyphicon-menu-hamburger"></span>
+				    </button>
+				    <a href="index.html" class="navbar-brand">
+					    <img alt="Brand" src="../../static/rent/image/brand.png">
+				    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right" id="nav-menu" style="color:#fff;">
+                        <li>Log In</li>
+                        <li>Sign Up</li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="main-container">
+                <div class="h1 center animated fadeInUp" style="color:#fff; font-size:3rem; font-weight:normal; margin-top:55vh; margin-bottom:10vh;">What do you need?</div>
+                <div class="row center" id="search">
+                    <div class="col-lg-2"></div>
+                <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5" id="searchbar-container" style="padding:0px;">
+                    <input type="text" id="searchbar" name="" placeholder="Underwater camera, triangle ruler, ugly Christmas sweater..." style="border-radius:0px; padding:10px; border:0px;margin:0px;"/>
+                </div>
+                    <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3 clickable" style="padding:0px;">
+                    <div class="clickable btn btn-primary" id="search-btn" style="background-color:#7DBFFF; border:none; border-radius:0px;display:inline-block;">
+                        Search
+                    </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
             </div>
+        </header>
+        <div class="container">
+            <div id="landing_block">
+                <img id="process_background" src="../../static/rent/image/background.svg">
+                <!--<img class="process_img" id="process_img_1" src="../../static/rent/image/process_1.svg">-->
+                <!--<img class="process_img" id="process_img_2" src="../../static/rent/image/process_2.svg">-->
+                <!--<img class="process_img" id="process_img_3" src="../../static/rent/image/process_3.svg">-->
+                <!--<img class="process_img" id="process_img_4" src="../../static/rent/image/process_4.svg">-->
+                <span class="circle"></span>
+                <span class="circle on"></span>
+           
+                <div class="process_text col-lg-5" id="process_text_1">
+                    <h2>Send out a request,<br>
+                    rent the item from the community.</h2>
+                    <p>Twee trust fund etsy yuccie. Cronut chia vinyl meditation biodiesel tacos banjo, asymmetrical health goth small batch retro pug.</p>
+                </div>
+                <div class="process_text col-lg-5" id="process_text_2">
+                    <h2>Save Money,<br>
+                    go green.</h2>
+                    <p>Twee trust fund etsy yuccie. Cronut chia vinyl meditation biodiesel tacos banjo, asymmetrical health goth small batch retro pug.</p>
+                </div>
+                <div class="process_text col-lg-5" id="process_text_3">
+                    <h2>Become a renter,<br>
+                    help your peers out.</h2>
+                    <p>Twee trust fund etsy yuccie. Cronut chia vinyl meditation biodiesel tacos banjo, asymmetrical health goth small batch retro pug.</p>
+                </div>
+                <div class="process_text col-lg-5" id="process_text_4">
+                    <h2>Request when in need,<br>
+                    rent when others need.</h2>
+                    <p>Twee trust fund etsy yuccie. Cronut chia vinyl meditation biodiesel tacos banjo, asymmetrical health goth small batch retro pug.</p>
+                </div>
+             </div>
+            <div class="h1 center" style="color:#1E90FF; font-weight:normal; margin-top:700px; margin-bottom:10vh; z-index:5">What do you need?</div>
+                <div class="row center" id="search">
+                    <div class="col-lg-2"></div>
+                <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5" id="searchbar-container" style="padding:0px;">
+                    <input type="text" id="searchbar" name="" placeholder="Underwater camera, triangle ruler, ugly Christmas sweater..." style="border-radius:0px; padding:2px; border:0px;"/>
+                </div>
+                    <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3 clickable" id="search-btn-container">
+                    <div class="clickable btn btn-primary" id="search-btn" style="background-color:#1E90FF; border:none; border-radius:0px;">
+                        Search
+                    </div>
+                    </div>
+                    <div class=col-2></div>
+                </div>
+                <div class="h1 center" style="color:#1E90FF; font-weight:normal; margin-top:20vh; margin-bottom:10vh;">Ready to Help?</div>
+                <button class="btn btn-primary btn-primary-blue col-md-3 col-lg-3 col-xm-3 col-sm-3 center" style="background:#1E90FF; border:none; border-radius:0px;">Offer My Item</button>
+        </div>
+        <div style="position:relative;">
+            <span id="landing_bottom_background"></span>
+        </div>
+        <!--<div style="position:relative;">-->
             
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right" id="nav-menu">
-                    <li>Offer My Item</li>
-                    <li>Categories</li>
-                    <li>My Offers</li>
-                    <li>My Requests</li>
-                    <li><i class="fa fa-search" aria-hidden="true"></i></li>
-                    <li id="nav-user">
-                         <img src="../../static/rent/image/avatar.png" alt="">
-                         <!--<p>Tom</p>-->
+            <div class="h1 center" style="color:#fff; font-weight:normal; margin:40vh 0 20vh 0;">What other students say?</div>
+            <img src="../../static/rent/image/quote.svg" id="quotemark">
+            <div class="center" id="quote">
+                <div class="col-lg-2"></div>
+                <div class="cards col-lg-3">
+                    <p>Twee trust fund etsy yuccie. Cronut chia vinyl meditation biodiesel tacos banjo, asymmetrical health goth small batch retro pug. Hoodie tattooed fap franzen ugh pork belly.</p>
+                    <img src="../../static/rent/image/quote_1.png">
+                    <p class="name">Tom Hans</p>
+                    <p>ECE 17'</p>
+                </div>
+                <div class="col-lg-2"></div>
+                <div class="cards col-lg-3">
+                    <p>Twee trust fund etsy yuccie. Cronut chia vinyl meditation biodiesel tacos banjo, asymmetrical health goth small batch retro pug. Hoodie tattooed fap franzen ugh pork belly.</p>
+                    <img src="../../static/rent/image/quote_2.png">
+                    <p class="name">Jessica Young</p>
+                    <p>MHCI 17'</p>
+                </div>
+            </div>
+            <div style="position:relative;">
+                <span id="landing_foot_background"></span>
+            </div>
+            <div class="clear"></div>
+            <footer class="row">
+                <nav class="nav_footer center col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <ul>
+                    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4">ABOUT
+                        <ul>
+                            <li>Our Mission</li>
+                            <li>Blog</li>
+                        </ul>
                     </li>
-                </ul>
-            </div>
-        </nav>
-    
-        <!--<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-right offcanvas" role="navigation">-->
-        <!--  <a class="navmenu-brand" href="#">Brand</a>-->
-        <!--  <ul class="nav navmenu-nav">-->
-        <!--    <li class="active"><a href="#">Home</a></li>-->
-        <!--    <li><a href="#">Link</a></li>-->
-        <!--    <li><a href="#">Link</a></li>-->
-        <!--  </ul>-->
-        <!--</nav>-->
-        <!--<div class="navbar navbar-default navbar-fixed-top">-->
-        <!--  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">-->
-        <!--    <span class="icon-bar"></span>-->
-        <!--    <span class="icon-bar"></span>-->
-        <!--    <span class="icon-bar"></span>-->
+                    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4">SUPPORT
+                        <ul>
+                            <li>FAQ</li>
+                            <li>Help Center</li>
+                            <li>Terms of Service</li>
+                            <li>Private Policy</li>
+                        </ul>
+                    </li>
+                    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4">CONTACT
+                        <ul>
+                            <li>Email Us</li>
+                        </ul>
+                    </li>
+                  </ul>
+                </nav>
+            </footer>
             
-        <!--  </button>-->
         <!--</div>-->
-    
-    
-        <h1>My First Heading</h1>
-        <p>My first paragraph.</p>
+        <script type="text/javascript" src="../../static/rent/js/anime.min.js"></script>
+        <script type="text/javascript" src="../../static/rent/js/script.js"></script>
         
-        <button class="btn btn-primary">
-            Primary Button
-        </button>
-        
-        <button class="btn btn-secondary">
-            Secondary Button
-        </button>
-        
-        
- 
-    
     </body>
-</html>
+    
+</html>    
