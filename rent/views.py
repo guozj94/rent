@@ -216,7 +216,7 @@ def login_authenticate(request):
 	if not form.is_valid():
 		context['form'] = form
 		return render(request, 'rent/login.html', context)
-	print form.cleaned_data['password']
+	#print form.cleaned_data['password']
 	user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
 	login(request, user)
 	return redirect(reverse('home'))
@@ -325,3 +325,14 @@ def request_item(request, id):
 	new_offer_response.save()
 	print("request_saved")
 	return redirect("search")
+
+def make_transaction(request, item_id, borrower_id):
+	context={}
+	item = OfferingItem.objects.get(id=item_id)
+	incoming_offer = OfferResponse.objects.filter(item__in=item)
+	lender=request.user
+	borrower = User.objects.get(id=borrower_id)
+	new_transaction = Transaction(lender=lender,borrower=borrower,is_offer=True,offer_item=item)
+	new_transaction.save()
+	return redirect("confirmedoffer")
+

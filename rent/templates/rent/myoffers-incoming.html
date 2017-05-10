@@ -87,7 +87,7 @@
 
                             <div class="col-xxs col-xs-3 col-sm-3 col-md-3 col-lg-3 request-avatar">
                                 <input type="hidden" name="" id="contactinfo" value="{{i.borrower.email}}">
-                                <img class="center margin-between-element" src="../../static/rent/image/avatar.png"></img>
+                                <img class="center margin-between-element" src="../../static/rent/image/avatar.png">
                                 <div class="body center margin-between-element">{{i.borrower.first_name}}</div>
                                 <button class="btn btn-secondary btn-secondary-blue center">
                                     Contact
@@ -99,13 +99,13 @@
                         <div>
                             <input type="hidden" name="" input="responseid" value="{{i.id}}">
                             <div class="caption-2 incoming-time">
-                                04/05/2017
+                                {{i.post_date}}
                             </div>
                             <button class="btn btn-secondary btn-secondary-red right ">
                                 Decline
                             </button>
-                            <button class="btn btn-secondary btn-secondary-green right" id="incoming-confirm">
-                                Confirm
+                            <button class="btn btn-secondary btn-secondary-green right" id="incoming-confirm"><a href="{% url 'make_transaction' item_id=i.id borrower_id=i.borrower.id %}">
+                                Confirm</a>
                             </button>
                             
                         </div>
