@@ -208,7 +208,7 @@ def login_modal(request):
 	context['form'] = form
 	form_reg = RegistrationForm()
 	context['form_reg'] = form_reg
-	return render(request, 'rent/login.html', context)
+	return render(request, 'rent/index.html', context)
 
 def login_authenticate(request):
 	if request.method != 'POST':
@@ -218,7 +218,7 @@ def login_authenticate(request):
 	form = LoginForm(request.POST)
 	if not form.is_valid():
 		context['form'] = form
-		return render(request, 'rent/login.html', context)
+		return render(request, 'rent/index.html', context)
 	#print form.cleaned_data['password']
 	user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
 	login(request, user)
@@ -234,7 +234,7 @@ def register_action(request):
 	form = RegistrationForm(request.POST)
 	context['form_reg'] = form
 	if not form.is_valid():
-		return render(request, 'rent/login.html', context)
+		return render(request, 'rent/index.html', context)
 	new_user = User.objects.create_user(username=form.cleaned_data['username'], 
                                         password=form.cleaned_data['password1'],
                                         #email=form.cleaned_data['email'],

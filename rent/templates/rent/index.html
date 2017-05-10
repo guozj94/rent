@@ -33,12 +33,88 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right" id="nav-menu" style="color:#fff;">
-                        <li><a href="{% url 'login' %}">Log In</a></li>
-                        <li><a href="{% url 'register' %}">Sign Up</a></li>
+                        <li data-toggle="modal" data-target="#userModal">Log In</li>
+                        <li data-toggle="modal" data-target="#userModal">Sign Up</li>
                     </ul>
                 </div>
             </nav>
-            
+                <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modal_title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="tabs">
+                      <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#sign_in">Sign In</a></li>
+                        <li><a data-toggle="tab" href="#sign_up">Sign Up</a></li>
+                      </ul>
+                      <div class="tab-content">
+                        <!-- sign in tab-->
+                        <div id="sign_in" class="tab-pane fade in active">
+                            <form method="POST" action="{% url 'login_authenticate' %}" role="form">
+                              <div class="form-group">
+                                <label for="user_name" class="form-control-label">User Name:</label>
+                                <div>{{form.username}}</div>
+                                <!-- <input type="text" class="form-control" name="username" id="user_name"> -->
+                              </div>
+                              <div class="form-group">
+                                <label for="password" class="form-control-label">Password:</label>
+                                <div>{{form.password}}</div>
+                                <!-- <input type="text" class="form-control" name="password" id="password" name="password"> -->
+                              </div>
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Sign In</button>
+                            </form>
+                          </div>
+                          <div id="sign_up" class="tab-pane fade">
+                            <form method="POST" action="{% url 'register' %}" role="form">
+                              <div class="form-group">
+                                <label for="username" class="form-control-label">User Name:</label>
+                                <div>{{form_reg.username}}</div>
+                                <!-- <input type="text" class="form-control" id="username" name="username"> -->
+                              </div>
+                               <div class="form-group">
+                                <label for="username" class="form-control-label">First Name:</label>
+                                <div>{{form_reg.first_name}}</div>
+                                <!-- <input type="text" class="form-control" id="username" name="firstname"> -->
+                              </div>
+                              <div class="form-group">
+                                <label for="username" class="form-control-label">Last Name:</label>
+                                <div>{{form_reg.last_name}}</div>
+                                <!-- <input type="text" class="form-control" id="username" name="lastname"> -->
+                              </div>
+                              <div class="form-group">
+                                <label for="password1" class="form-control-label">Password:</label>
+                                <div>{{form_reg.password1}}</div>
+                                <!-- <input type="text" class="form-control" id="password1" name="password1"> -->
+                              </div>
+                                <div class="form-group">
+                                <label for="password1" class="form-control-label">Confirm Password:</label>
+                                <div>{{form_reg.password2}}</div>
+                                <!-- <input type="text" class="form-control" id="password2" name="password2"> -->
+                              </div>
+                            
+                            <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Register">
+                            </div>
+                            {% csrf_token %}
+                            </form>
+                          </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
             <div class="main-container">
                 <div class="h1 center animated fadeInUp" style="color:#fff; font-size:3rem; font-weight:normal; margin-top:55vh; margin-bottom:10vh;">What do you need?</div>
                 <div class="row center" id="search">

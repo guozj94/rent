@@ -18,7 +18,7 @@ from django.contrib import admin
 from rent import views as rent_views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    #url(r'^admin/', admin.site.urls),
     url(r'^$', rent_views.landing, name="landing"),
     url(r'^rent/', include('rent.urls')),
 ]
