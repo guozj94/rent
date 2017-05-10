@@ -160,15 +160,18 @@ p {
     background-color: #fafbfc;
     border: solid 2px #dde5ed;
 }
+
 #form-description {
     border-radius: 5px;
     background-color: #fafbfc;
     border: solid 2px #dde5ed;
     width: 100%;
     resize: none;
+    
     padding: 12px 20px;
     color: #8ca2b6;
 }
+
 #form2 {
     margin-top: 20px;
     margin-bottom: 20px;
