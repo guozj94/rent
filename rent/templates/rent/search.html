@@ -77,7 +77,7 @@
                                     <div class="col-md-10"></div>
                                     <div class="col-md-2 request-btn-container">
                                         <input type="hidden" id="itemid" name="itemid" value="{{item.id}}">
-                                        <div class="request-btn clickable">Request</div>
+                                        <button class="request-btn clickable"><a href="{% url 'request_item' item.id %}">Request</a></button>
                                     </div>
                                 </div>
                             </div>

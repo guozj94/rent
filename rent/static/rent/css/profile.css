@@ -1,39 +1,28 @@
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+@import 'elements.css';
 
-.navbar {
-  margin-bottom: 20px;
-}
-
-.glyphicon-search{
-	margin-right: 15px;
+.element {
+  width: remainder;
 }
 
 .glyphicon-star-empty{
-	margin-right: 25px;
+	margin-right: 8%;
 }
 
 .glyphicon-star{
-	margin-right: 25px;
+	margin-right: 8%;
 }
 
 .h3{
 	text-align: center;
 }
 
-.navbar-brand{
-  margin-top: -5px;
-  margin-right: -25px;
-}
-
 .rating{
-	margin-top: 10%;
+	margin-top: 100px;
 }
 
 #bigh2{
-	margin-left:18%;
+	width: 100%;
+  margin: 0%; 
 }
 
 #bigh3{
@@ -41,5 +30,22 @@ body {
 }
 
 #bigh4{
-	margin-left:15%;
+	width: 100%;
+	margin: 0%; 
+}
+
+@media (max-width: 480px) { 
+    
+}
+
+@media only screen and (max-width: 768px) {   
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
 }

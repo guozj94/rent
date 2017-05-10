@@ -110,6 +110,7 @@ function submitRequest() {
 }
 
 function appendItem(name, pic, description, reward, lenderid, lendername) {
+    
 	$("#items-container").append(
 		'<div class="an-item nodisplay">'+
             '<div class="row title">'+
@@ -146,7 +147,7 @@ function appendItem(name, pic, description, reward, lenderid, lendername) {
                 '<div class="col-md-10"></div>'+
                 '<div class="col-md-2 request-btn-container">'+
                     '<input type="hidden" id="itemid" name="itemid" value="{{item.id}}">'+
-                    '<div class="request-btn clickable">Request</div>'+
+                    '<div class="request-btn clickable">'+ loc + 'Request</div>'+
                 '</div>'+
             '</div>'+
         '</div>'

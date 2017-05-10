@@ -135,7 +135,7 @@ def send_request_ajax(request):
 @login_required
 def incomingoffer(request):
 	context = {}
-	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_avtive
+	my_items = OfferingItem.objects.filter(lender=request.user) #request.user is_avtive
 	incoming_offer = OfferResponse.objects.filter(item__in=my_items)
 	context['incoming_offer'] = incoming_offer
 	#print my_items, incoming_offer
@@ -144,7 +144,7 @@ def incomingoffer(request):
 @login_required
 def confirmedoffer(request):
 	context = {}
-	my_items = OfferingItem.objects.filter(lender__pk=1) #request.user is_active
+	my_items = OfferingItem.objects.filter(lender=request.user) #request.user is_active
 	confirmed_offer = Transaction.objects.filter(is_offer=True, offer_item__in=my_items)
 	context['confirmed_offer'] = confirmed_offer
 	#print confirmed_offer
@@ -295,3 +295,26 @@ def my_requests(request):
 	help_peer = RequestingItem.objects.all().exclude(borrower=request.user, )[:4]
 	context['help_peer'] = help_peer
 	return render(request, 'rent/my_requests.html', context)
+
+@login_required
+def view_profile(request, id):
+	user = get_object_or_404(User, id=id)
+	context = {"username": user.username,
+				"firstname": user.first_name,
+				"lastname":user.last_name}
+	items = OfferingItem.objects.filter(lender=user)
+	context['items'] = items
+
+
+	return render(request, 'rent/profile.html', context)
+
+
+def request_item(request, id):
+	context={}
+	item = OfferingItem.objects.get(id=id)
+	user = request.user
+
+	new_offer_response = OfferResponse(item=item, borrower=user)
+	new_offer_response.save()
+	print("request_saved")
+	return redirect("search")

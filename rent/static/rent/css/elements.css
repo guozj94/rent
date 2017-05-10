@@ -206,6 +206,14 @@ nav #nav-menu #nav-user {
   border-right: solid 1px #dde5ed;
 }
 
+.nodisplay {
+    display:none;
+}
+
+button {
+    border: none;
+    background-color: none;
+}
 .image-fill {
     width: 100%;
 }
