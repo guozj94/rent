@@ -25,6 +25,7 @@
                 </nav>
                 <div class="col-sm-9 col-md-9 col-lg-9" role="main">
                     <div class="h1">My Items</div>
+                    {% if my_items%}
                     {% for i in my_items %}
                     <div class="myoffer-incoming gray-border incoming-gray-border">
                         <div class="">
@@ -97,6 +98,10 @@
                         </div>
                     </div>
                     {% endfor %}
+                    {% else %}
+                    You have not posted anything to share/rent with others! 
+                    <a href="{% url 'offer_item' %}">Offer your item</a> to get started!
+                    {% endif %}
                 </div>
                 
             </div>

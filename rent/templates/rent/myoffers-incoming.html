@@ -26,6 +26,7 @@
                 </nav>
                 <div class="col-sm-9 col-md-9 col-lg-9" role="main">
                     <div class="h1">Incoming</div>
+                    {% if incoming_offer %}
                     {% for i in incoming_offer %}
                     <div class="myoffer-incoming gray-border incoming-gray-border container">      
                         <div class="row">
@@ -112,6 +113,9 @@
                           
                     </div>
                     {% endfor %}
+                {% else %}
+                No requests yet!
+                {% endif %}
                 </div>
                 
             </div>

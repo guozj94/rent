@@ -25,6 +25,7 @@
                 </nav>
                 <div class="col-sm-9 col-md-9 col-lg-9" role="main">
                     <div class="h1">Confirmed Requests</div>
+                    {% if confirmed_offer %}
                     {% for i in confirmed_offer %}
                     <div class="myoffer-incoming gray-border incoming-gray-border container">
                         <div class="row">
@@ -109,6 +110,9 @@
                         </div>           
                     </div>
                     {% endfor %} 
+                {% else %}
+                No confirmed offers yet!
+            {% endif %}
                 </div>
                 
             </div>
