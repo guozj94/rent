@@ -166,6 +166,8 @@ p {
     border: solid 2px #dde5ed;
     width: 100%;
     resize: none;
+    padding: 12px 20px;
+    color: #8ca2b6;
 }
 #form2 {
     margin-top: 20px;
