@@ -329,7 +329,7 @@ def request_item(request, id):
 def make_transaction(request, item_id, borrower_id):
 	context={}
 	item = OfferingItem.objects.get(id=item_id)
-	incoming_offer = OfferResponse.objects.filter(item__in=item)
+	incoming_offer = OfferResponse.objects.get(item=item)
 	lender=request.user
 	borrower = User.objects.get(id=borrower_id)
 	new_transaction = Transaction(lender=lender,borrower=borrower,is_offer=True,offer_item=item)
