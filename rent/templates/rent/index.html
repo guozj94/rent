@@ -33,11 +33,12 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right" id="nav-menu" style="color:#fff;">
-                        <li>Log In</li>
-                        <li>Sign Up</li>
+                        <li><a href="{% url 'login' %}">Log In</a></li>
+                        <li><a href="{% url 'register' %}">Sign Up</a></li>
                     </ul>
                 </div>
             </nav>
+            
             <div class="main-container">
                 <div class="h1 center animated fadeInUp" style="color:#fff; font-size:3rem; font-weight:normal; margin-top:55vh; margin-bottom:10vh;">What do you need?</div>
                 <div class="row center" id="search">
