@@ -4,6 +4,28 @@
   clear:both;
 }
 
+#navsearch[type=text]{
+    width: 80px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    display: inline-block;
+/*
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+*/
+    padding: 2px 20px 2px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.2s ease-in-out;
+}
+
+#navsearch[type=text]:focus{
+    width:80%;
+}
+
+
 .item_panel {
   width: 1140px;
   height: 565px;
