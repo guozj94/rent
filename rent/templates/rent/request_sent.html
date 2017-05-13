@@ -1,0 +1,57 @@
+{% extends "rent/base.html" %}
+   
+{% block pagetitle %}Request Sent{% endblock %}
+   
+{% block bodycontent %}
+    
+        <div class="main-container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-md-9">
+                    
+                    <div class="content-container">
+                        <div class="row" id="search">
+                            <div class="col-xs-9 col-xs-9 col-sm-9 col-md-9" id="searchbar-container">
+                                <input type="text" id="searchbar" name="" placeholder="  Search item"/>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 clickable" id="search-btn-container">
+                                <div class="clickable btn btn-primary" id="search-btn">
+                                    Search
+                                </div>
+                            </div>
+                        </div>
+                        <div id="success-container">
+                            <div style="color:#23ce6b; margin-top:20px;font-size:2rem;">Your request has been posted.</div>
+                            <div>Go to <a href="{% url 'my_requests' %}">My Request</a> to see more.</div>
+                        </div>
+                        
+      
+                    </div>
+                    
+                </div>
+ 
+                <div class="hidden-xs col-sm-3 col-md-3" id="could-you-help-peer-container">
+                    <div class="" id="help-peer-title">
+                        Could you help your peers?
+                    </div>
+                    <div class="peer-item-container">
+                        <img src="../../static/rent/image/bike-whitebg.png" width="82px" height="82px"></img>
+                        <div class="peer-item-name">
+                            Bike
+                        </div>
+                        <div class="peer-item-viewdetail">
+                            View Detail
+                        </div>
+                    </div>
+                    <div class="peer-item-container">
+                        <img src="../../static/rent/image/triangle rulers.jpg" width="82px" height="82px"></img>
+                        <div class="peer-item-name">
+                            Triangle Rulers
+                        </div>
+                        <div class="peer-item-viewdetail">
+                            View Detail
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

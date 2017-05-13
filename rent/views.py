@@ -339,3 +339,7 @@ def make_transaction(request, item_id, borrower_id):
 	new_transaction.save()
 	return redirect("confirmedoffer")
 
+def request_sent(request):
+    context={}
+    return render(request, 'rent/request_sent.html', context)
+
