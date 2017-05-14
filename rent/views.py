@@ -29,7 +29,19 @@ from rent.forms import *
 # Create your views here.
 
 def landing(request):
-	return render(request, 'rent/index.html',{})
+	context = {}
+	print (request.user)
+	form = LoginForm()
+	context['form'] = form
+	form_reg = RegistrationForm()
+	context['form_reg'] = form_reg
+	if request.user.is_anonymous():
+		context['login'] = 'Log In'
+		context['signup'] = 'Sign Up'
+	else:
+		return render(request, 'rent/home.html',{})
+	return render(request, 'rent/index.html', context)
+
 
 def home(request):
 	print(request.user)
@@ -226,7 +238,7 @@ def login_authenticate(request):
 
 def logout_user(request):
 	logout(request)
-	return redirect(reverse('home'))
+	landing()
 
 def register_action(request):
 	if request.method != 'POST':
