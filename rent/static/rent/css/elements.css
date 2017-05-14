@@ -324,7 +324,64 @@ input[type=password], select {
     color: #8ca2b6;
 }
 
+.tabs > .nav > li {
+    width: 50%;
+    text-align: center;
+}
 
+.login-modal-header {
+    padding-bottom: 0px;
+    padding-top: 10px;
+    
+}
 
+.login-modal-header .close span {
+    font-size: 30px;
+}
 
+.my-tab-content {
+    border: solid 2px #dde5ed;
+    border-top: none;
+    padding: 10px;
+    background: white;
 
+}
+
+.my-nav-tabs {
+    border-bottom: solid 2px #dde5ed;
+}
+
+.my-nav-tabs .active a {
+    border: solid 2px #dde5ed !important;
+    border-bottom-color: transparent !important;
+}
+
+.modal-content {
+    background-image: url("../image/bg-login.png");
+}
+
+.my-modal-body {
+    padding-bottom: 25px;
+}
+
+.form-group input[type=text] {
+    background-color: #fafbfc;
+    border: solid 1px #dde5ed;
+}
+
+.form-group input[type=password] {
+    background-color: #fafbfc;
+    border: solid 1px #dde5ed;
+}
+
+.form-control-label {
+    font-weight: 100;
+    color: #92a1b3;
+}
+
+.log-button {
+    text-align: center;
+    margin: auto;
+    display: inherit;
+    margin-top: 30px;
+}
