@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'rent/css/style.css' %}">
         <link rel="stylesheet" type="text/css" href="../../static/rent/css/myoffers.css">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-        <script type="text/javascript" src=""></script>
+        <script type="text/javascript" src="../../static/rent/js/contact.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 {% endblock %}
 
@@ -33,7 +33,7 @@
                             <div class="col-xxs col-xs-9 col-sm-9 col-md-9 col-lg-9 verticalLine container">
                                 <div class="row">
                                     <div class="col-xxs col-xs-4 col-sm-3 col-md-2 col-lg-2">
-                                        <img class="image-fill" src="../../static/rent/image/Photo-Tripod.png"></img>
+                                        <img class="image-fill" src="../../static/rent/image/Photo-Tripod.png">
                                     </div>
                                     <div class="col-xxs col-xs-8 col-sm-9 col-md-10 col-lg-10">
                                         <div class="myoffer-title">
@@ -89,10 +89,11 @@
                             <div class="col-xxs col-xs-3 col-sm-3 col-md-3 col-lg-3 request-avatar">
                                 <input type="hidden" name="" id="contactinfo" value="{{i.borrower.email}}">
                                 <img class="center margin-between-element" src="../../static/rent/image/avatar.png">
-                                <div class="body center margin-between-element">{{i.borrower.first_name}}</div>
-                                <button class="btn btn-secondary btn-secondary-blue center">
+                                <div class="body center margin-between-element"><a href="{% url 'profile' i.borrower.id %}">{{i.borrower.first_name}}</a></div>
+                                <button type="button" class="btn btn-secondary btn-secondary-blue center" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-html="true" title="contact {{i.borrower.first_name}}" data-content="phone: 951-264-5121 <br> email: luhan@cmu.edu">
                                     Contact
                                 </button>
+                                
                             </div>
                             
                         </div>
@@ -122,32 +123,5 @@
         </section>
         {% endblock %}
     
-        <!--<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-right offcanvas" role="navigation">-->
-        <!--  <a class="navmenu-brand" href="#">Brand</a>-->
-        <!--  <ul class="nav navmenu-nav">-->
-        <!--    <li class="active"><a href="#">Home</a></li>-->
-        <!--    <li><a href="#">Link</a></li>-->
-        <!--    <li><a href="#">Link</a></li>-->
-        <!--  </ul>-->
-        <!--</nav>-->
-        <!--<div class="navbar navbar-default navbar-fixed-top">-->
-        <!--  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">-->
-        <!--    <span class="icon-bar"></span>-->
-        <!--    <span class="icon-bar"></span>-->
-        <!--    <span class="icon-bar"></span>-->
-            
-        <!--  </button>-->
-        <!--</div>-->
-    
-    
-        
-        <!--<p>My first paragraph.</p>-->
-        
-        <!--<button class="btn btn-primary">-->
-        <!--    Primary Button-->
-        <!--</button>-->
-        
-        <!--<button class="btn btn-secondary">-->
-        <!--    Secondary Button-->
-        <!--</button>-->
+
         
