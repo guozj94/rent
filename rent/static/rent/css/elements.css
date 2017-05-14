@@ -293,7 +293,18 @@ button {
 
 input[type=text], select {
     width: 100%;
-    padding: 12px 20px;
+    padding: 6px 10px;
+    margin: 0px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #8ca2b6;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 6px 10px;
     margin: 0px 0;
     display: inline-block;
     border: 1px solid #ccc;
