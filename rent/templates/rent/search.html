@@ -66,9 +66,9 @@
                                                 <img src="http://placehold.it/37x37">
                                                 {% endif %}
                                             </div>
-                                            <div class="col-md-10 col-sm-9 col-xs-12 lender-name">
+                                            <div class="col-md-10 col-sm-9 col-xs-12 lender-name"><a href="{% url 'profile' item.lender.id %}">
                                                 {{item.lender.first_name}}
-                                            </div>
+                                                </a></div>
                                             <div class="col-md-10 col-sm-9 col-xs-12 lender-rate">
                                                 <div class='row'>
                                                     <div class="star-center" style="float:left;     margin-left: 13px;">

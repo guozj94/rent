@@ -326,7 +326,7 @@ def request_item(request, id):
 	new_offer_response = OfferResponse(item=item, borrower=user)
 	new_offer_response.save()
 	print("request_saved")
-	return redirect("search")
+	return redirect("request_sent")
 
 def make_transaction(request, item_id, borrower_id):
 	print("here")
