@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'rent/css/style.css' %}">
         <link rel="stylesheet" type="text/css" href="../../static/rent/css/myoffers.css">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-        <script type="text/javascript" src=""></script>
+        <script type="text/javascript" src="../../static/rent/js/contact.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 {% endblock %}
 
@@ -84,9 +84,9 @@
                                 
                             </div>
                             <div class="col-xxs col-xs-3 col-sm-3 col-md-3 col-lg-3 request-avatar">
-                                <img class="center margin-between-element" src="../../static/rent/image/avatar.png"></img>
+                                <img class="center margin-between-element" src="../../static/rent/image/avatar.png">
                                 <div class="body center margin-between-element">{{i.borrower.first_name}}</div>
-                                <button class="btn btn-secondary btn-secondary-blue center">
+                                <button type="button" class="btn btn-secondary btn-secondary-blue center" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-html="true" title="contact {{i.borrower.first_name}}" data-content="phone: 951-264-5121 <br> email: userx@cmu.edu">
                                     Contact
                                 </button>
                             </div>

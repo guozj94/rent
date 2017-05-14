@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
         <script type="text/javascript" src="../../static/rent/js/my_request.js"></script>
+        <script type="text/javascript" src="../../static/rent/js/contact.js"></script>
 {% endblock %}
 
 {% block bodycontent %}
@@ -128,9 +129,10 @@
                                                     </div>
                                                     
                                                 </div>
-                                                <div class="btn btn-secondary-blue btn-response-contact">
+                                                <button type="button" class="btn btn-secondary btn-secondary-blue center" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-html="true" title="contact {{r.responding_item.lender.first_name}}" data-content="phone: 951-264-5121 <br> email: userx@cmu.edu">
                                                     Contact
-                                                </div>
+                                               </button>
+                                               
                                            </div>  
                                         </div>
                                         {% endfor %}
