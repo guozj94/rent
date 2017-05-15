@@ -129,4 +129,4 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'rent/static/rent')
+MEDIA_ROOT = os.path.join(BASE_DIR,'images')
