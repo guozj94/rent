@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'^profile/(?P<id>\d+)$', rent_views.view_profile, name="profile"),
     url(r'^request_item/(?P<id>\d+)$', rent_views.request_item, name="request_item"),
     url(r'^make_transaction/(?P<item_id>\d+)/(?P<borrower_id>\d+)$', rent_views.make_transaction, name="make_transaction"),
-    url(r'^request_sent$', rent_views.request_sent, name="request_sent")
+    url(r'^request_sent$', rent_views.request_sent, name="request_sent"),
+    url(r'^userPic$', rent_views.user_pic, name="user_pic")
 ]

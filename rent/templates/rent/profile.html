@@ -16,7 +16,11 @@
         <div class="profile-info-container">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 profile-avatar">
+              {% if photo %}
+             <img src="{% url 'userpicture' photo %}">
+              {% else %}
               <img class="img-circle" src="../../static/rent/image/avatar.png">
+              {% endif %}
             </div>
           </div>
           <div class="row justify-content-md-center">

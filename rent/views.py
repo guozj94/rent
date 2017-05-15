@@ -69,6 +69,9 @@ def help_peer_detail(request, id):
 	request_item = RequestingItem.objects.get(id=id)
 	print(request_item.name)
 	context['request_item'] = request_item
+	profile = get_object_or_404(Profile, user=request_item.borrower)
+	if profile.photo:
+		context['photo'] = request_item.borrower.id
 	my_items = OfferingItem.objects.filter(lender=request.user) #request.user is_active
 	context['my_items'] = my_items
 	return render(request, 'rent/helpout.html', context)
@@ -178,10 +181,11 @@ def myalloffer(request):
 @login_required
 def get_user_photo(request, id):
 	user = get_object_or_404(User, id=id)
+	profile = get_object_or_404(Profile, user=user)
 	#print user.profile.photo
-	if not user.profile.photo:
+	if not profile.photo:
 		raise Http404
-	return HttpResponse(user.profile.photo, content_type=user.profile.content_type)
+	return HttpResponse(profile.photo, content_type=profile.content_type)
 
 @login_required
 def get_item_photo(request, id):
@@ -322,11 +326,13 @@ def view_profile(request, id):
 	user = get_object_or_404(User, id=id)
 	context = {"username": user.username,
 				"firstname": user.first_name,
-				"lastname":user.last_name}
+				"lastname":user.last_name,
+				"user": user}
+	profile = get_object_or_404(Profile, user=user)
+	if profile.photo:
+		context['photo'] = id
 	items = OfferingItem.objects.filter(lender=user)
 	context['items'] = items
-
-
 	return render(request, 'rent/profile.html', context)
 
 
@@ -354,4 +360,25 @@ def make_transaction(request, item_id, borrower_id):
 def request_sent(request):
     context={}
     return render(request, 'rent/request_sent.html', context)
+
+
+def user_pic(request):
+	user = request.user
+	entry = Profile.objects.select_for_update().get(user=user)
+
+	if request.method == 'GET':
+		form = PhotoForm(instance=entry)
+		context = { 'form': form}
+		return render(request, 'rent/editProfile.html', context)
+	
+	form = PhotoForm(request.POST, request.FILES, instance=entry)
+	if not form.is_valid():
+		context = { 'entry': entry, 'form': form }
+		return render(request, 'rent/editProfile.html', context)
+
+	entry.content_type = form.cleaned_data['photo'].content_type
+	print(entry.content_type)
+
+	form.save()
+	return redirect(reverse('profile', kwargs={'id': request.user.id}))
 

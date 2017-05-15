@@ -14,6 +14,7 @@ def randomword(length):
 
 def useruploadpath(instance, filename):
 	path = "rent/static/rent/user_image"
+	print(instance.content_type)
 	format = str(instance.user_id) + '.' + (instance.content_type).split('/')[-1]
 	return os.path.join(path, format)
 
@@ -107,4 +108,3 @@ class Transaction(models.Model):
 		return 'id=' + str(self.id)
 
 
-		

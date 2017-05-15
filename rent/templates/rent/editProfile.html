@@ -1,0 +1,35 @@
+{% extends "rent/base.html" %}
+
+
+
+{% block bodycontent%}
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="well">
+                    <form enctype="multipart/form-data" method="post" action="{% url 'user_pic' %}">
+        <table>
+            {% for field in form.visible_fields %}
+                <tr>
+                    <td>{{field.label_tag}}</td>
+                    <td>{{field}}</td>
+                    <td class="error">
+                        {% for error in errors %} {{error}} {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+        {% for field in form.hidden_fields %}
+            {{field}} {{field.errors}}
+        {% endfor %}
+        {% csrf_token %}
+        <input type="submit" value="Save Changes">
+    </form>
+            </div>
+        </div>
+    </div> 
+
+
+{% endblock %}

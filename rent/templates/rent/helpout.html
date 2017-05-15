@@ -52,8 +52,8 @@
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">Requester</div></div>
                             <div class="row margin-between-element">
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
-                                {% if request_item.borrow.picture %}
-                                <img class="col-lg-8 col-md-8 col-sm-8 col-xs-8" src="{% url 'userpicture' request_item.borrower.id %}">
+                                {% if photo %}
+                                <img class="col-lg-8 col-md-8 col-sm-8 col-xs-8" src="{% url 'userpicture' photo %}">
                                 {% else %}
                                 <img class="col-lg-8 col-md-8 col-sm-8 col-xs-8" src="../../static/rent/image/joy.jpg">
                                 {% endif %}
