@@ -98,6 +98,7 @@ function submitRequest() {
 			success: function() {
 				$("#form").addClass("nodisplay");
 				$("#send").addClass("nodisplay");
+                $("#cant-find").addClass("nodisplay");
 				$("#success-container").removeClass("nodisplay");
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {

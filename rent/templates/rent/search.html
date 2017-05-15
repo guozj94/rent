@@ -18,16 +18,19 @@
                 <div class="col-xs-12 col-sm-9 col-md-9">
                     
                     <div class="content-container">
-                        <div class="row" id="search">
-                            <div class="col-xs-9 col-xs-9 col-sm-9 col-md-9" id="searchbar-container">
-                                <input type="text" id="searchbar" name="" placeholder="Search item"/>
-                            </div>
-                            <div class="col-xs-3 col-sm-3 col-md-3 clickable" id="search-btn-container">
-                                <div class="clickable btn btn-primary" id="search-btn">
-                                    Search
+                        <form method="GET" action="{% url 'search' %}">
+                            <div class="row" id="search">
+                                
+                                <div class="col-xs-9 col-xs-9 col-sm-9 col-md-9" id="searchbar-container">
+                                    <input type="text" id="searchbar" name="searchbar" placeholder="Search item"/>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 clickable" id="search-btn-container">
+                                    <button type="submit" class="clickable btn btn-primary" id="search-btn">
+                                        Search
+                                    </button>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                         <div class="" id="items-container">
                         {% for item in items %}
                             <div class="an-item">
@@ -188,8 +191,8 @@
                             </div>
                         </div>
                         <div class="nodisplay" id="success-container">
-                            <div>Your request has been posted.</div>
-                            <div>Go to My Request to see more.</div>
+                            <div style="color:red">Your request has been posted.</div>
+                            <div>Go to <a href="{% url 'my_requests' %}">My Request</a> to see more.</div>
                         </div>
                         <div></div>
                         
