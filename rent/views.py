@@ -234,15 +234,37 @@ def login_authenticate(request):
 	form = LoginForm(request.POST)
 	if not form.is_valid():
 		context['form'] = form
+		form_reg = RegistrationForm()
+		context['form_reg'] = form_reg
+		context['login'] = 'Log In'
+		context['signup'] = 'Sign Up'
 		return render(request, 'rent/index.html', context)
+		#return render(request, 'rent/index.html', context)
 	#print form.cleaned_data['password']
-	user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
-	login(request, user)
-	return redirect(reverse('home'))
+	try:
+		user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+		login(request, user)
+		return redirect(reverse('home'))
+	except:
+		context['form'] = form
+		form_reg = RegistrationForm()
+		context['form_reg'] = form_reg
+		context['login'] = 'Log In'
+		context['signup'] = 'Sign Up'
+		return render(request, 'rent/index.html', context)
 
 def logout_user(request):
 	logout(request)
-	landing()
+	context = {}
+	print (request.user)
+	form = LoginForm()
+	context['form'] = form
+	form_reg = RegistrationForm()
+	context['form_reg'] = form_reg
+	if request.user.is_anonymous():
+		context['login'] = 'Log In'
+		context['signup'] = 'Sign Up'
+	return render(request, 'rent/index.html', context)
 
 def register_action(request):
 	if request.method != 'POST':

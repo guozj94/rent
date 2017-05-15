@@ -23,6 +23,13 @@ function getResult() {
 }
 
 function updateResult(list) {
+	$("#currently-unavailable").addClass("nodisplay");
+	console.log("list", list);
+	if(list.length == 0) {
+		console.log($("#currently-unavailable1"));
+		$("#currently-unavailable1").removeClass("nodisplay");
+		console.log("empty");
+	}
 	$("#items-container").empty();
 	$.each(list, function() {
 		appendItem(this.fields.name, this.fields.picture, this.fields.description, this.fields.reward, this.fields.lender, this.fields.lendername);
@@ -98,7 +105,8 @@ function submitRequest() {
 			success: function() {
 				$("#form").addClass("nodisplay");
 				$("#send").addClass("nodisplay");
-                $("#cant-find").addClass("nodisplay");
+				$('#currently-unavailable').addClass("nodisplay");
+				$("#cant-find").addClass("nodisplay");
 				$("#success-container").removeClass("nodisplay");
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {

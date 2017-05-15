@@ -13,10 +13,11 @@ class LoginForm(forms.Form):
 	def clean(self):
 		cleaned_data = super(LoginForm, self).clean()
 		username = cleaned_data['username']
+		password = cleaned_data['password']
 		if User.objects.filter(username__exact=username):
 			pass
 		else:
-			raise forms.ValidationError('Username does not exist.')
+			raise forms.ValidationError('Incorrect username or password')
 		return cleaned_data
 
 class RegistrationForm(forms.Form):
