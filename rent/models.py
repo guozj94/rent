@@ -14,14 +14,13 @@ def randomword(length):
 
 def useruploadpath(instance, filename):
 	#path = "rent/static/rent/user_image"
-	path = "rent/images/user_image"
-	print(instance.content_type)
+	path = "images/user_image"
 	format = str(instance.user_id) + '.' + (instance.content_type).split('/')[-1]
 	return os.path.join(path, format)
 
 def itemuploadpath(instance, filename):
 	#path = "rent/static/rent/item_image"
-	path = "rent/images/item_image"
+	path = "images/item_image"
 	format = randomword(15) + '.' + (instance.content_type).split('/')[-1]
 	return os.path.join(path, format)
 
