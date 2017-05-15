@@ -393,6 +393,14 @@
     background: linear-gradient(to right, #fc6076 0%,#ff9a44 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
+#landing_text{
+    color:#fff; 
+    font-size:3rem; 
+    font-weight:normal; 
+    margin-top:55vh; 
+    margin-bottom:10vh;
+}
+
 #landing_diagram{
   height:150vh;
   position: relative;
@@ -754,6 +762,14 @@
   }
 } 
 
+#home_body_text{
+    color:#1E90FF; 
+    font-weight:normal; 
+    margin-top:700px; 
+    margin-bottom:10vh; 
+    z-index:5;
+}
+
 #landing_bottom_background{
     content: " ";
     display: block;
@@ -840,6 +856,21 @@
 
   }
     
+    #landing_head_background{
+        height:100vh;
+    }
+    
+    #landing_text{
+        margin-top: 10vh;
+        color:#fff; 
+        font-size:2rem; 
+        font-weight:normal;    
+    }
+    
+    #landing_block{
+        margin-top: 2vh;
+    }
+    
     #circle_1{
         display: none;
     }
@@ -856,12 +887,24 @@
         display: none;
     }
     
+    #process_text_1{
+        top:15%;
+        left: 0px;
+    }
+    
     #process_text_2{
         left:0px;
+        top:40%;
+    }
+    
+    #process_text_3{
+        left:0px;
+        top:65%;
     }
     
      #process_text_4{
         left: 0;
+        top: 90%;
     }
     
     #card_2{
@@ -882,6 +925,21 @@
   .profile-info-container {
     display: block;
   }
+    
+    #landing_head_background{
+        height:100vh;
+    }
+    
+    #landing_text{
+        margin-top: 10vh;
+        color:#fff; 
+        font-size:2rem; 
+        font-weight:normal;    
+    }
+    
+    #landing_block{
+        margin-top: 2vh;
+    }
   
     #circle_1{
         display: none;
@@ -899,12 +957,28 @@
         display: none;
     }
     
+    #process_text_1{
+        top:15%;
+        left: 0px;
+    }
+    
     #process_text_2{
         left:0px;
+        top:40%;
+    }
+    
+    #process_text_3{
+        left:0px;
+        top:65%;
     }
     
      #process_text_4{
         left: 0;
+        top: 90%;
+    }
+    
+    #home_body_text{
+        margin-top: 200px;
     }
     
     #card_2{
