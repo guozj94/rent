@@ -6,6 +6,9 @@
         <link rel="stylesheet" href="../../static/rent/css/search.css" type="text/css" />
         <link rel="stylesheet" href="../../static/rent/css/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../../static/rent/css/style.css" type="text/css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
         <script type="text/javascript" src="../../static/rent/js/search.js"></script>
 {% endblock %}
     
@@ -27,6 +30,14 @@
                                     Search
                                 </div>
                             </div>
+                        </div>
+                        {% if not items %}
+                        <div id="currently-unavailable" style="font-size: 16px; text-align: center; font-weight: 700; margin-top: 40px; margin-bottom: 20px;"> 
+                        Oops! This item is currently unavailable.
+                        </div>
+                        {% endif %}
+                        <div class="nodisplay" id="currently-unavailable1" style="font-size: 16px; text-align: center; font-weight: 700; margin-top: 40px; margin-bottom: 20px;"> 
+                        Oops! This item is currently unavailable.
                         </div>
                         <div class="" id="items-container">
                         {% for item in items %}
