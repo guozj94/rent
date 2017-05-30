@@ -195,6 +195,13 @@ def get_item_photo(request, id):
 	return HttpResponse(item.picture, content_type=item.content_type)
 
 @login_required
+def get_item_photo_r(request, id):
+	item = get_object_or_404(RequestingItem, id=id)
+	if not item.picture:
+		raise Http404
+	return HttpResponse(item.picture, content_type=item.content_type)
+
+@login_required
 @transaction.atomic
 def offer_item(request):
 	user = get_object_or_404(Profile, user=request.user)
@@ -356,6 +363,10 @@ def view_profile(request, id):
 	items = OfferingItem.objects.filter(lender=user)
 	context['items'] = items
 	return render(request, 'rent/profile.html', context)
+
+@login_required
+def view_profile1(request):
+	return render(request, 'rent/profile.html', {})
 
 
 def request_item(request, id):

@@ -2,6 +2,9 @@
 p {
     margin: 0;
 }
+a {
+    color: #0064ff;
+}
 .main-container {
     max-width: 1200px;
 }
@@ -101,9 +104,13 @@ p {
     text-align: center;
     color: #0064ff;
     line-height: 24px;
+    background: none;
 }
 .request-btn:hover {
     background-color: #0064ff;
+    color: white;
+}
+.request-btn a:hover {
     color: white;
 }
 
@@ -236,6 +243,17 @@ p {
 .peer-item-viewdetail {
     font-size: 16px;
     color: #646464;
+    text-decoration: underline;
+}
+.peer-item-viewdetail button {
+    background: none;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    color: #0064ff;
+}
+.peer-item-viewdetail button:hover {
     text-decoration: underline;
 }
 #success-container {
