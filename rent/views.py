@@ -56,7 +56,7 @@ def search(request):
 	#print all_items
 	context['items'] = all_items
 	help_peer = RequestingItem.objects.all().exclude(borrower=request.user)[:4]
-	#print(help_peer)
+	print(help_peer)
 	context['help_peer'] = help_peer
 	return render(request, 'rent/search.html', context)
 

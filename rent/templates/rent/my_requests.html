@@ -291,7 +291,7 @@
                     <form method="GET" action="{% url 'help_peer_detail' j.id %}">
                     <div class="peer-item-container">
                         {% if j.picture %}
-                        <img src="{% url 'get_item_photo' j.id %}" width="82px" height="82px">
+                        <img src="{% url 'get_item_photo_r' j.id %}" width="82px" height="82px">
                         {% else %}
                         <img src="../../static/rent/image/camera.jpg">
                         {% endif %}
